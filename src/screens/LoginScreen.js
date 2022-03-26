@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function LoginScreen() {
-  return (
-    <div>LoginScreen</div>
-  )
+  return <div>LoginScreen Marcelo</div>;
 }
 
-export default LoginScreen
+export default LoginScreen;
