@@ -11,7 +11,7 @@ function LoginScreen() {
     <div className='hrHomeHeader'> </div>
 
     <div>
-      Formulário
+      Formulário Teste
     </div>
   </>
   )
