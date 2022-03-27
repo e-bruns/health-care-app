@@ -21,7 +21,8 @@
   background-color: var(--color-blue-dark-primary);
   height: 50vh;
   width: 100%;
-  margin-bottom: 0px;    
+  margin-bottom: 0px;
+  display: flex;    
 }
 
 .hrHomeHeader {

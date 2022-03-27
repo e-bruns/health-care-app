@@ -35,6 +35,11 @@ body {
   color: var(--color-blue-dark-primary);
 }
 
+.form-size {
+  max-width: 400px;
+  width: 80vw;
+}
+
 a {
   color: inherit;
   text-decoration: none;
