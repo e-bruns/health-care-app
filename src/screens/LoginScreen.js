@@ -1,7 +1,11 @@
 import React from 'react';
 
 function LoginScreen() {
-  return <div>LoginScreen Marcelo Bruno</div>;
+  return (
+    <div className="">
+      <div className="login__header"></div>
+    </div>
+  );
 }
 
 export default LoginScreen;
