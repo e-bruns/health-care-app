@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Button from 'react-bootstrap/Button';
+import MenuHeaderMain from './components/MenuHeaderMain';
 
 function HomeScreen() {
-  return <>
-  Teste
-  </>;
+  return <div>
+    <MenuHeaderMain/>
+    Testeeee
+  </div>
 }
 
 export default HomeScreen;
