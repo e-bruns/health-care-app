@@ -20,20 +20,6 @@ body {
   color: var(--color-white);
   overflow-x: hidden;
 }
-.HealthCareTitleHome {
-  width: 201px;
-  height: 54px;
-  font-family: 'Open Sans', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 40px;
-  line-height: 54px;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
-  align-self: flex-end;
-  color: var(--color-white);
-}
 
 .HealthCareTitleApp {
   width: 201px;
@@ -47,22 +33,6 @@ body {
   text-align: center;
   align-self: center;
   color: var(--color-blue-dark-primary);
-}
-
-.HealthCareHome {
-    background-image: url(../../public/assets/health-app-background.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: var(--color-blue-dark-primary);
-    height: 50vh;
-    width: 100%;
-    margin-bottom: 0px;    
-}
-
-.hrHomeHeader {
-    height: 5px;
-    background-color: var(--color-blue-dark-secondary);
 }
 
 a {

@@ -1,11 +1,12 @@
 import React from 'react';
+import style from './LoginScreen.css'
 
 function LoginScreen() {
   return (
   <>
     <div className='HealthCareHome'>
 
-      <div className='HealthCareTitleHome'>HealthCare</div>
+      <div className='HealthCareTitleHome'><div>HealthCare</div></div>
     </div>
     
     <div className='hrHomeHeader'> </div>
