@@ -1,0 +1,80 @@
+.MenuHeaderMain {
+  height: 120px;
+  background-color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.MenuHeaderMain:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.2;
+  background-image: url(../../../public/assets/backgroundapp.jpg);
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+}
+
+.MenuHeaderMain__button {
+  height: 50px;
+  width: 70px;
+  background-color: var(--color-blue-dark-primary);  
+  display: flex;
+  position: fixed;
+  left: 35px;
+  top: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px;
+  z-index: 1;
+}
+
+.MenuHeaderMain__button:hover{
+  cursor: pointer;
+}
+
+.MenuHeaderMain__button > div{
+  height: 4px;
+  width: 40px;
+  background-color: white;
+  border-radius: 7px;
+}
+
+.MenuHeaderMain__button > div:nth-child(1) {
+  transform: 
+      rotate(45deg) 
+      translate(7px, 7px);
+}
+.MenuHeaderMain__button > div:nth-child(2) {
+  opacity: 0;
+}
+.MenuHeaderMain__button > div:nth-child(3) {
+  transform: 
+    rotate(-45deg) 
+    translate(9px, -9px);
+}
+
+.MenuHeader__Panel {
+  background-color: white;
+  box-shadow: 3px 0px 12px #00000038;
+  display: flex;
+  position: fixed;
+  left: 0px;
+  top: 120px;
+  height: calc(100vh);
+  width: 250px;
+  z-index: 999;
+  transition: all ease-in 500ms;
+}
+
+.t {
+  left: -250px;
+}
