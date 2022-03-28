@@ -9,10 +9,22 @@ function MenuHeaderMain() {
   return (
     <div>
       <div className={`MenuHeader__Panel ${menu ? '':'t'}`}>
-        <h1 onClick={()=>{
-          setMenu(false)
-        }}>Fechar</h1>
+        <div className="MenuHeader__Logo">HealthCare</div>
+
+
+        <div className="MenuHeader__Submenu">
+          <div>Consultas</div>
+          <div>Exames</div>
+          <div>Tratamentos</div>
+          <div>Compartilhamentos</div>
+          <div>Logout</div>
+        </div>
+
+        <div onClick={() => {
+              (menu) ? setMenu(false) : setMenu(true);
+            }}>Fechar [temporariamente]</div>
       </div>
+
       <div className="MenuHeaderMain">
           <div className="MenuHeaderMain__button" onClick={
             () => {

@@ -48,7 +48,7 @@
   border-radius: 7px;
 }
 
-.MenuHeaderMain__button > div:nth-child(1) {
+/* .MenuHeaderMain__button > div:nth-child(1) {
   transform: 
       rotate(45deg) 
       translate(7px, 7px);
@@ -60,7 +60,7 @@
   transform: 
     rotate(-45deg) 
     translate(9px, -9px);
-}
+} */
 
 .MenuHeader__Panel {
   background-color: white;
@@ -68,13 +68,51 @@
   display: flex;
   position: fixed;
   left: 0px;
-  top: 120px;
+  top: 0px;
   height: calc(100vh);
   width: 250px;
   z-index: 999;
   transition: all ease-in 500ms;
+  flex-direction: column;
 }
 
 .t {
   left: -250px;
+}
+
+.MenuHeader__Logo {
+  height: 70px;
+  width: 100%;
+  background-color: var(--color-background);
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+  line-height: 70px;
+}
+
+.MenuHeader__Submenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.MenuHeader__Submenu > div {
+  background-color: var(--color-background);
+  border-radius: 3px;
+  height: 40px;
+  width: 100%;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  color: white;
+  font-weight: 600;
+  line-height: 40px;
+  box-shadow: inset 0px 4px 3px 0px #00000042
+}
+
+.MenuHeader__Submenu > div:last-child{
+  background-color: gray;
 }
