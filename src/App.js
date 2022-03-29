@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
-import HomeScreen from './screens/HomeScreen';
-import ExamScreen from './screens/ExamScreen';
+import HomeScreen from './screens/home';
+import ExamScreen from './screens';
 
 function App() {
   return (

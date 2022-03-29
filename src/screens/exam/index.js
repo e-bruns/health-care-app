@@ -1,7 +1,7 @@
 import React from 'react'
-import MenuHeaderMain from "./components/MenuHeaderMain"
+import MenuHeaderMain from "../_components/MenuHeaderMain"
 import { Row, Col, Button } from 'react-bootstrap'
-import CardGlobal from './components/CardGlobal'
+import CardGlobal from '../_components/CardGlobal'
 
 function Exam() {
 
