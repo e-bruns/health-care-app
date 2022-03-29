@@ -116,3 +116,15 @@
 .MenuHeader__Submenu > div:last-child{
   background-color: gray;
 }
+
+.closeMenuHeader {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: white;
+  font-size: 20px;
+}
+
+.closeMenuHeader:hover {
+  cursor: pointer;
+}

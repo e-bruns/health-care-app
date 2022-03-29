@@ -1,16 +1,16 @@
-import React, {useState} from 'react'
-import "./MenuHeaderMain.css"
+import React, {useState} from 'react';
+import "./MenuHeaderMain.css";
+import { FaWindowClose } from "react-icons/fa";
 
 function MenuHeaderMain() {
   const [menu,setMenu] = useState(false);
-  
 
   console.log(menu);
   return (
     <div>
       <div className={`MenuHeader__Panel ${menu ? '':'t'}`}>
-        <div className="MenuHeader__Logo">HealthCare</div>
-
+        <div className="MenuHeader__Logo">HealthCare
+        </div>
 
         <div className="MenuHeader__Submenu">
           <div>Consultas</div>
@@ -20,10 +20,10 @@ function MenuHeaderMain() {
           <div>Logout</div>
         </div>
 
-        <div onClick={() => {
+        <div className="closeMenuHeader" onClick={() => {
               (menu) ? setMenu(false) : setMenu(true);
-            }}>Fechar [temporariamente]</div>
-      </div>
+            }}><FaWindowClose/></div>            
+        </div>
 
       <div className="MenuHeaderMain">
           <div className="MenuHeaderMain__button" onClick={
