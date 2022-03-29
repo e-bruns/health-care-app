@@ -21,18 +21,14 @@ body {
   overflow-x: hidden;
 }
 
-.HealthCareTitleApp {
-  width: 201px;
-  height: 54px;
-  
-  font-family: 'Open Sans', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 40px;
-  line-height: 54px;
-  text-align: center;
-  align-self: center;
+.screen-box {
+  width: 80vw;
+  padding: 6px;
+  background-color: var(--color-white);
   color: var(--color-blue-dark-primary);
+  border-radius: 5px;
+  vertical-align: baseline;
+  margin-bottom: 15px;
 }
 
 .form-size {

@@ -3,8 +3,9 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LoginScreen from './screens/LoginScreen';
-import Register from './screens/Register';
-import HomeScreen from './screens/HomeScreen';
+import RegisterScreen from './screens/register/index';
+import HomeScreen from './screens/home/index';
+import ExamScreen from './screens/exam/index';
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LoginScreen />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register" element={<RegisterScreen />} />
           <Route path="/home" element={<HomeScreen />} />
+          <Route path="/exam" element={<ExamScreen />} />
         </Routes>
       </Router>
     </div>
