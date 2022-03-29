@@ -3,7 +3,7 @@ import { Row, Col, Button } from 'react-bootstrap'
 
 function CardGlobal(props) {
     return (
-            <div className='screen-box shadow-sm'>
+                <div className='screen-box shadow-sm'>
                 <Row>
                     <Col sm={6}>{props.title}</Col>
                     <Col sm={6}><Button href={props.link}>DETALHAR</Button></Col>
