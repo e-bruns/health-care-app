@@ -5,13 +5,13 @@ function CardGlobal(props) {
     return (
             <div className='screen-box shadow-sm'>
                 <Row>
-                    <Col sm={6}>EXAME DE SANGUE</Col>
-                    <Col sm={6}><Button>DETALHAR</Button></Col>
+                    <Col sm={6}>{props.title}</Col>
+                    <Col sm={6}><Button href={props.link}>DETALHAR</Button></Col>
                     <hr></hr>
                     <div>
                         <Row>
-                            <Col sm={6}>UNIMED</Col>
-                            <Col sm={6}>10/10/2021</Col>
+                            <Col sm={6}>{props.exam_location}</Col>
+                            <Col sm={6}>{props.date}</Col>
                         </Row>
                     </div>
                 </Row>

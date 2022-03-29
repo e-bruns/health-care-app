@@ -5,6 +5,32 @@ import CardGlobal from './components/CardGlobal'
 
 function Exam() {
 
+  let arr=[{
+    title: "EXAME DE SANGUE",
+    exam_location: "UNIMED",
+    date: "11/03/2021",
+    link: "#",
+    id: 0
+  },
+  {
+    title: "EXAME DE ALERGIAS",
+    exam_location: "VITALLAB",
+    date: "19/03/2021",
+    link: "#",
+    id: 1
+  },
+  {
+    title: "EXAME DE NONON",
+    exam_location: "NONON",
+    date: "21/03/2021",
+    link: "#",
+    id: 2
+  }
+]
+
+// console.log(arr)
+
+
 
   return (
     <>
@@ -15,10 +41,10 @@ function Exam() {
           <div className='screen-box mb-4'><h2>EXAMES</h2>
           
           </div>
-
-          <CardGlobal> </CardGlobal>
-          
-          
+            { arr.map((exam) => 
+              <CardGlobal title={exam.title} exam_location={exam.exam_location} date={exam.date} link={exam.link} key={exam.id}></CardGlobal>
+            )
+            }
         </div>
       </div>
     </>
