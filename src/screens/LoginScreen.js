@@ -29,6 +29,9 @@ function LoginScreen() {
           <div className='mt-3'>
             <a href='/register' className="btn btn-sm btn-outline-primary text-white form-size">NÃO TENHO CADASTRO</a>
           </div>
+          <div className='mt-3'>
+            <a href='/resetpswd' className="text-white form-size">Esqueci minha senha</a>
+          </div>
         </div>
       </div>
     </>

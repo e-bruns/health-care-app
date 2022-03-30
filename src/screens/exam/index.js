@@ -1,6 +1,8 @@
 import React from 'react'
 import MenuHeaderMain from "../_components/MenuHeaderMain"
 import { Row, Col, Button } from 'react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import CardGlobal from '../_components/CardGlobal'
 
 function Exam() {
@@ -36,11 +38,19 @@ function Exam() {
     <>
       <MenuHeaderMain />
 
-      <div className='container p-3'>
-        <div align="center">  
-          <div className='screen-box mb-4'><h2>EXAMES</h2>
+      <div className='container mt-3 mx-auto'>
+        <div className='text-center'>
+          <Row className='my-auto'>
+            <Col sm={6}>
+              <div className='screen-box'>
+                <h2>EXAMES</h2>
+              </div>
+            </Col>
+            <Col sm={6} >
+              <Button><FontAwesomeIcon icon={faMagnifyingGlass} className="text-white p-1" /></Button>
+            </Col>
+          </Row>  
           
-          </div>
             { arr.map((exam) => 
               <CardGlobal title={exam.title} exam_location={exam.exam_location} date={exam.date} link={exam.link} key={exam.id}></CardGlobal>
             )

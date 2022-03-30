@@ -23,12 +23,22 @@ body {
 
 .screen-box {
   width: 80vw;
-  padding: 6px;
+  padding: 0.5rem;
   background-color: var(--color-white);
   color: var(--color-blue-dark-primary);
   border-radius: 5px;
   vertical-align: baseline;
   margin-bottom: 15px;
+}
+
+.screen-box-table {
+  width: 75vw;
+  padding: 0.5rem;
+  background-color: var(--color-blue-light-primary);
+  border: var(--color-blue-light-secondary) 1px solid;
+  color: var(--color-blue-dark-primary);
+  border-radius: 5px;
+  margin-bottom: 5px;
 }
 
 .form-size {
