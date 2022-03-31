@@ -6,10 +6,7 @@ function HomeScreen() {
 
   return <div>
     <MenuHeaderMain/>
-
-
-
-    <ModalGlobal title="Deseja excluir mesmo?" id="3"><h1>Excluir</h1></ModalGlobal>
+    
   </div>
 }
 

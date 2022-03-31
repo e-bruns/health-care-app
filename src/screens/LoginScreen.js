@@ -1,18 +1,17 @@
 import React from 'react';
-import './LoginScreen.css'
+import './LoginScreen.css';
 
 function LoginScreen() {
   return (
     <>
       <div className='HealthCareHome'>
-
         <div className='HealthCareTitleHome'><div>HealthCare</div></div>
       </div>
 
-      <div className='hrHomeHeader'> </div>
+      <div className='hrHomeHeader'></div>
 
       <div className='container p-3'>
-        <p className='text-center text-white display-6 p-4'>Armazene seu histórico de consultas, exames e tratamentos e compartilhe de forma segura com profissionais da saúde!</p>
+        <p className='text-center text-white p-4 textLogin'>Armazene seu histórico de consultas, exames e tratamentos e compartilhe de forma segura com profissionais da saúde!</p>
 
         <div align="center">
           <form action=" ">
@@ -35,7 +34,7 @@ function LoginScreen() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default LoginScreen;
