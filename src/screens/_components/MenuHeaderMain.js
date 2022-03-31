@@ -15,6 +15,7 @@ function MenuHeaderMain() {
         </div>
 
         <div className="MenuHeader__Submenu">
+          <div onClick={() => navigate("/")}>Home</div>
           <div>Consultas</div>
           <div onClick={() => navigate("/exam")}>Exames</div>
           <div>Tratamentos</div>

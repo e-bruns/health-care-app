@@ -18,6 +18,7 @@ function App() {
           <Route path="/resetpswd" element={<ResetPswdScreen />} />
           <Route path="/home" element={<HomeScreen />} />
           <Route path="/exam" element={<ExamScreen />} />
+          <Route path='*' element={<LoginScreen />} />
         </Routes>
       </Router>
     </div>
