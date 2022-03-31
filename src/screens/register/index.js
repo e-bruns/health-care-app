@@ -1,19 +1,19 @@
-import React from 'react'
+import React from 'react';
 import { useState } from "react";
-import '../LoginScreen.css'
-import MenuHeaderMain from "../_components/MenuHeaderMain"
+import '../LoginScreen.css';
+import MenuHeaderMain from "../_components/MenuHeaderMain";
 
 
 function Register() {
-  const [fields, setFields] = useState({})
+  const [fields, setFields] = useState({});
 
   function handleChange(event) {
     const target = event.target;
     const value = target.value;
     const name = target.name;
 
-    setFields({ ...fields, [name]: value })
-    console.log(fields['tipo-usuario'])
+    setFields({ ...fields, [name]: value });
+    console.log(fields['tipo-usuario']);
   }
 
 
@@ -30,21 +30,21 @@ function Register() {
           <form action=" ">
             <div className='form-size text-white'>
               <div className="form-group mt-3 text-start">
-                <label htmlfor="nome">NOME COMPLETO</label>
+                <label htmlFor="nome">NOME COMPLETO</label>
                 <input type="text" className="form-control" placeholder="DIGITE SEU NOME COMPLETO" id="nome" />
               </div>
               <div className="form-group mt-3 text-start">
-                <label htmlfor="email">E-MAIL</label>
+                <label htmlFor="email">E-MAIL</label>
                 <input type="email" className="form-control" placeholder="DIGITE SEU E-MAIL" id="pwd" />
               </div>
               <div className="form-group mt-3 text-start">
-                <label htmlfor="whatsapp">WHATSAPP</label>
+                <label htmlFor="whatsapp">WHATSAPP</label>
                 <input type="number" className="form-control" placeholder="DIGITE NÚMERO DO WHATSAPP" id="whatsapp" />
               </div>
               <div className="form-group mt-3 mb-3 text-start">
-                <label htmlfor="tipo-usuario">TIPO DE USUÁRIO</label><br />
+                <label htmlFor="tipo-usuario">TIPO DE USUÁRIO</label><br />
                 <select name="tipo-usuario" className="form-control" id="tipo-usuario" onChange={handleChange} value={fields["tipo-usuario"]}>
-                  <option disabled selected value=''> -- selecione uma opção -- </option>
+                  <option disabled selected value="">--selecione uma opção--</option>
                   <option value="paciente">PACIENTE</option>
                   <option value="profissional">PROFISSIONAL DE SAÚDE</option>
                 </select>
@@ -53,7 +53,7 @@ function Register() {
               {fields['tipo-usuario'] === 'profissional' ?
                 <>
                   <div className="form-group mb-3 text-start">
-                    <label htmlfor="id-profissional">DIGITE SEU ID PROFISSIONAL <span className='small'>(CRM, CRO, ETC)</span></label>
+                    <label htmlFor="id-profissional">DIGITE SEU ID PROFISSIONAL <span className='small'>(CRM, CRO, ETC)</span></label>
                     <input type="text" className="form-control" placeholder="DIGITE SEU ID PROFISSIONAL" id="whatsapp" />
                   </div>
                 </>
@@ -70,7 +70,7 @@ function Register() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Register
+export default Register;
