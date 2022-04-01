@@ -8,11 +8,11 @@ function LoginScreen() {
 
   async function fetchData() {
 
-    const request = await axios.post('/auth', {
+    const request = await axios.post('/auth/sign_in', {
       email: emailRef.current.value,
       password: passwordRef.current.value
     }).then(function (response) {
-      console.log(response);
+      console.log(response.headers);
     })
       .catch(function (error) {
         console.log(error);
@@ -36,7 +36,7 @@ function LoginScreen() {
           <form>
             <div className='form-size'>
               <div className="mb-3 mt-3">
-                <input type="email" className="form-control" ref={emailRef} id="email" placeholder="DIGITE SEU E-MAIL" name="email" onChange={() => console.log(emailRef.current.value)} />
+                <input type="email" className="form-control" ref={emailRef} id="email" placeholder="DIGITE SEU E-MAIL" name="email" />
               </div>
               <div className="mb-3">
                 <input type="password" ref={passwordRef} className="form-control" id="pwd" placeholder="DIGITE SUA SENHA" name="pwd" />
@@ -45,7 +45,6 @@ function LoginScreen() {
             <button type="submit" onClick={(e) => {
               e.preventDefault();
               fetchData();
-              console.log(e);
             }} className="mt-3 btn btn-lg btn-primary form-size">ENTRAR</button>
           </form>
           <div className='mt-3'>
