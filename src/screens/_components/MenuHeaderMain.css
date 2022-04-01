@@ -18,15 +18,15 @@
   background-image: url(../../../public/assets/backgroundapp.jpg);
   background-repeat: no-repeat;
   background-position: 50% -118px;
-  background-size: cover;  
+  background-size: cover;
 }
 
 .MenuHeaderMain__button {
   height: 50px;
   width: 70px;
-  background-color: var(--color-blue-dark-primary);  
+  background-color: var(--color-blue-dark-primary);
   display: flex;
-  position: fixed;
+  position: absolute;
   left: 35px;
   top: 35px;
   display: flex;
@@ -37,11 +37,11 @@
   z-index: 1;
 }
 
-.MenuHeaderMain__button:hover{
+.MenuHeaderMain__button:hover {
   cursor: pointer;
 }
 
-.MenuHeaderMain__button > div{
+.MenuHeaderMain__button>div {
   height: 4px;
   width: 40px;
   background-color: white;
@@ -100,7 +100,7 @@
   padding-right: 15px;
 }
 
-.MenuHeader__Submenu > div {
+.MenuHeader__Submenu>div {
   background-color: var(--color-background);
   border-radius: 3px;
   height: 40px;
@@ -114,11 +114,11 @@
   transition: all 350ms linear;
 }
 
-.MenuHeader__Submenu > div:last-child{
+.MenuHeader__Submenu>div:last-child {
   background-color: gray;
 }
 
-.MenuHeader__Submenu > div:hover{
+.MenuHeader__Submenu>div:hover {
   cursor: pointer;
   padding-left: 15px;
 }
@@ -152,4 +152,3 @@
   z-index: -3;
   margin: auto;
 }
-
