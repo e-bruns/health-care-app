@@ -1,10 +1,13 @@
 import React, { useRef, useEffect } from 'react';
 import './LoginScreen.css';
 import axios from "../axios";
+import { login, logout } from '../features/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 function LoginScreen() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  const navigate = useNavigate();
 
   async function fetchData() {
 
@@ -12,11 +15,11 @@ function LoginScreen() {
       email: emailRef.current.value,
       password: passwordRef.current.value
     }).then(function (response) {
+      navigate("/home");
       console.log(response.headers);
-    })
-      .catch(function (error) {
-        console.log(error);
-      });
+    }).catch(function (error) {
+      console.log(error);
+    });
 
     return request;
   }

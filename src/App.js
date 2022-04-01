@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/register/index';
 import ResetPswdScreen from './screens/resetpswd/index';
 import HomeScreen from './screens/home/index';
 import ExamScreen from './screens/exam/index';
 
+
 function App() {
+
+
   return (
     <div className="App">
       <Router>
@@ -21,7 +23,7 @@ function App() {
           <Route path='*' element={<LoginScreen />} />
         </Routes>
       </Router>
-    </div>
+    </div >
   );
 }
 
