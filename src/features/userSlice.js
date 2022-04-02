@@ -1,12 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
+import Cookies from 'js-cookie';
+
+let initialState = {
+  logged: false, user: false
+};
+
+const sessionUser = Cookies.get('@session-user')
+if (sessionUser) {
+  initialState = {
+    logged: true,
+    user: JSON.stringify(sessionUser)
+  }
+}
 
 export const userSlice = createSlice({
   name: 'user',
-  initialState: {
-    accessToken: null,
-    client: null,
-    uid: null
-  },
+  initialState,
   reducers: {
     login: (state, action) => {
       console.group();
