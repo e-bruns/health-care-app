@@ -7,56 +7,56 @@ import CardGlobal from '../_components/CardGlobal'
 
 function Exam() {
 
-  let arr=[{
+  let arr = [{
     title: "EXAME DE SANGUE",
     exam_location: "UNIMED",
     date: "11/03/2021",
-    link: "#",
+    link: "exam/exam_detail",
     id: 0
   },
   {
     title: "EXAME DE ALERGIAS",
     exam_location: "VITALLAB",
     date: "19/03/2021",
-    link: "#",
+    link: "exam/exam_detail",
     id: 1
   },
   {
     title: "EXAME DE NONON",
     exam_location: "NONON",
     date: "21/03/2021",
-    link: "#",
+    link: "exam/exam_detail",
     id: 2
   }
-]
+  ]
 
-// console.log(arr)
-
-
+  // console.log(arr)
 
   return (
     <>
       <MenuHeaderMain />
 
-      <div className='container mt-3 mx-auto'>
-        <div className='text-center'>
-          <Row className='my-auto'>
-            <Col sm={6}>
-              <div className='screen-box'>
-                <h2>EXAMES</h2>
-              </div>
-            </Col>
-            <Col sm={6} >
-              <Button><FontAwesomeIcon icon={faMagnifyingGlass} className="text-white p-1" /></Button>
-            </Col>
-          </Row>  
-          
-            { arr.map((exam) => 
-              <CardGlobal title={exam.title} exam_location={exam.exam_location} date={exam.date} link={exam.link} key={exam.id}></CardGlobal>
-            )
-            }
+      <div className="CardLast_Group">
+        <div className='cardLast'>
+          <div className='cardLast__title text-center'>EXAMES</div>
+          <div className='cardLast__block_line'>
+            <div >
+              <input type="text" class="form-control"  placeholder="PESQUISAR" />
+            </div>
+            <div className='cardLast__button'> 
+              <FontAwesomeIcon icon={faMagnifyingGlass} className="text-white" />
+            </div>
+          </div>
         </div>
       </div>
+
+      <div className="CardLast_Group">
+
+        {arr.map((exam) =>
+          <CardGlobal title={exam.title} exam_location={exam.exam_location} date={exam.date} link={exam.link} key={exam.id}></CardGlobal>
+          )
+        }
+      </div>        
     </>
   )
 }

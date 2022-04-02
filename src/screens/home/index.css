@@ -5,6 +5,13 @@
   justify-content: center;
 }
 
+.CardLast_Single {
+  display: block;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 @media only screen and (max-width: 600px) {
   .CardLast_Group {
     flex-direction: column;
