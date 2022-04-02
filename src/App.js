@@ -1,6 +1,11 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/register/index';
 import ResetPswdScreen from './screens/resetpswd/index';
@@ -8,6 +13,7 @@ import HomeScreen from './screens/home/index';
 import ExamScreen from './screens/exam/index';
 import ExamDetail from './screens/exam/exam_detail';
 import Appointment from './screens/appointment/index';
+import { useSelector } from "react-redux";
 
 const AuthenticatedRoute = ({ children }) => {
   const { user } = useSelector((state) => state.user);
