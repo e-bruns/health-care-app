@@ -1,24 +1,26 @@
 import React, { useEffect } from "react";
-import "./App.css";
+
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
 } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/register/index";
 import ResetPswdScreen from "./screens/resetpswd/index";
 import HomeScreen from "./screens/home/index";
 import ExamScreen from "./screens/exam/index";
-import { useSelector } from "react-redux";
+
+import "./App.css";
 
 const AuthenticatedRoute = ({ children }) => {
   const { user } = useSelector((state) => state.user);
   if (!user) {
     return <Navigate to="/" replace />;
   }
-
   return children;
 };
 
@@ -42,12 +44,12 @@ function App() {
             path="/exam"
             element={
               <AuthenticatedRoute>
-                {" "}
                 <ExamScreen />
               </AuthenticatedRoute>
             }
           />
-          <Route path="*" element={<LoginScreen />} />
+          <Route path="/appointment" element={<Appointment />} />
+          <Route path='*' element={<LoginScreen />} />
         </Routes>
       </Router>
     </div>
