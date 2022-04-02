@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CardLast from '../_components/CardLast';
 import MenuHeaderMain from '../_components/MenuHeaderMain';
 import ModalGlobal from '../_components/ModalGlobal';
 import './index.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from './../../features/userSlice';
+import instance from '../../axios';
 
 function HomeScreen() {
 
@@ -26,6 +27,16 @@ function HomeScreen() {
       date: "28/03/2021"
     }
   ];
+
+  useEffect(() => {
+    instance.get('/api/v1/exams', { 
+      headers: {
+        'Content-Type': 'application/json',
+      }
+     }).then(response => {
+      console.log(response)
+    })
+  }, [])
 
   return (
     <div>

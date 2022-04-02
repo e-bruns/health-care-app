@@ -2,12 +2,23 @@ import React, { useState } from 'react';
 import "./MenuHeaderMain.css";
 import { FaWindowClose } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import authService from '../../services/auth';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../features/userSlice';
 
 function MenuHeaderMain() {
   const [menu, setMenu] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   console.log(menu);
+
+  function handlerLogout() {
+    authService.logout();
+    dispatch(logout())
+    navigate('/')
+  }
+
   return (
     <div>
       <div className={`MenuHeader__Panel ${menu ? '' : 't'}`}>
@@ -20,7 +31,7 @@ function MenuHeaderMain() {
           <div onClick={() => navigate("/exam")}>Exames</div>
           <div>Tratamentos</div>
           <div>Compartilhamentos</div>
-          <div>Logout</div>
+          <div onClick={() => handlerLogout()}>Logout</div>
         </div>
 
         <div className="closeMenuHeader" onClick={() => {
