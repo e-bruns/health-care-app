@@ -6,7 +6,9 @@ import RegisterScreen from './screens/register/index';
 import ResetPswdScreen from './screens/resetpswd/index';
 import HomeScreen from './screens/home/index';
 import ExamScreen from './screens/exam/index';
+import ExamDetail from './screens/exam/exam_detail';
 import Appointment from './screens/appointment/index';
+
 
 function App() {
 
@@ -21,6 +23,7 @@ function App() {
           <Route path="/home" element={<HomeScreen />} />
           <Route path="/appointment" element={<Appointment />} />
           <Route path="/exam" element={<ExamScreen />} />
+          <Route path="/exam/exam_detail" element={<ExamDetail />} />
           <Route path='*' element={<LoginScreen />} />
         </Routes>
       </Router>

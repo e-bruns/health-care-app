@@ -1,23 +1,22 @@
 import React from 'react'
-import { Row, Col, Button } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom';
 
 function CardGlobal(props) {
+
+  const navigate = useNavigate();
+
   return (
-    <div className='screen-box'>
-      <Row>
-        <Col sm={6}>{props.title}</Col>
-        <Col sm={6}><Button href={props.link}>DETALHAR</Button></Col>
-        
-        <div className='mx-auto w-90'><hr></hr></div>
-        
-        <div >
-          <Row className='screen-box-table mx-auto'>
-            <Col sm={6}>{props.exam_location}</Col>
-            <Col sm={6}>{props.date}</Col>
-          </Row>
-        </div>
-      </Row>
+
+  <div className='cardLast'>
+    <div className='cardLast__title'>{props.title}</div>
+    <div className='cardLast__block'></div>
+    <div className='cardLast__block_line'>
+      <div>{props.exam_location}</div>
+      <div>{props.date}</div>
     </div>
+
+    <div className='cardLast__button' onClick={() => navigate("/" + props.link)}>DETALHAR</div>
+  </div>
   )
 }
 

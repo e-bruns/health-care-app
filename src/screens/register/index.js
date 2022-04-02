@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from "react";
 import '../LoginScreen.css';
-import MenuHeaderMain from "../_components/MenuHeaderMain";
+
 
 
 function Register() {
