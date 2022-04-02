@@ -55,7 +55,7 @@ function Register() {
             }}
             validationSchema={yup.object().shape({
               name: yup.string().required("Nome é um campo obrigatório"),
-              email: yup.string().required("Emial é um campo obrigatório"),
+              email: yup.string().required("Email é um campo obrigatório"),
               cell_phone: yup
                 .string()
                 .matches(phoneRegExp, "O número do telefone não é valido")
@@ -63,7 +63,7 @@ function Register() {
               kind: yup
                 .string()
                 .required("Tipo de Usuário é um campo obrigatório"),
-              crm: yup.string().optional(),
+              crm: yup.string().required("ID Profissional é um campo obrigatório"),
               password: yup.string().required("Senha é um campo obrigatório"),
             })}
             onSubmit={handleRegister}
@@ -159,7 +159,7 @@ function Register() {
                     {values.kind === "2" ? (
                       <>
                         <div className="form-group mb-3 text-start">
-                          <label htmlFor="id-profissional">
+                          <label htmlFor="crm">
                             DIGITE SEU ID PROFISSIONAL{" "}
                             <span className="small">(CRM, CRO, ETC)</span>
                           </label>
@@ -167,8 +167,17 @@ function Register() {
                             type="text"
                             className="form-control"
                             placeholder="DIGITE SEU ID PROFISSIONAL"
-                            id="whatsapp"
+                            id="crm"
+                            name="crm"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.crm}
                           />
+                          {errors.crm && touched.crm ? (
+                        <span className="text-danger">{errors.crm}</span>
+                      ) : (
+                        ""
+                      )}
                         </div>
                       </>
                     ) : null}

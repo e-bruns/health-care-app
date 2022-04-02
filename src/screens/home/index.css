@@ -10,6 +10,9 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80vw;
 }
 
 @media only screen and (max-width: 600px) {

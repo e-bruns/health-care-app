@@ -46,6 +46,12 @@ body {
   width: 80vw;
 }
 
+.position-button-new {
+  position: fixed;
+  left: 85vw;
+  top: 85vh;
+}
+
 a {
   color: inherit;
   text-decoration: none;

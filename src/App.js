@@ -12,6 +12,7 @@ import ResetPswdScreen from './screens/resetpswd/index';
 import HomeScreen from './screens/home/index';
 import ExamScreen from './screens/exam/index';
 import ExamDetail from './screens/exam/exam_detail';
+import ExamNew from './screens/exam/exam_new';
 import Appointment from './screens/appointment/index';
 import { useSelector } from "react-redux";
 
@@ -47,9 +48,24 @@ function App() {
               </AuthenticatedRoute>
             }
           />
+          <Route
+            path="/exam/exam-detail"
+            element={
+              <AuthenticatedRoute>
+                <ExamDetail />
+              </AuthenticatedRoute>
+            }
+          />    
+          <Route
+            path="/exam/exam-new"
+            element={
+              <AuthenticatedRoute>
+                <ExamNew />
+              </AuthenticatedRoute>
+            }
+          />    
+
           <Route path="/appointment" element={<Appointment />} />
-          <Route path="/exam" element={<ExamScreen />} />
-          <Route path="/exam/exam_detail" element={<ExamDetail />} />
           <Route path='*' element={<LoginScreen />} />
         </Routes>
       </Router>

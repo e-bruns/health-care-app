@@ -23,7 +23,7 @@ function ResetPswd() {
                 <label htmlfor="email">INFORME SEU E-MAIL</label>
                 <input type="email" className="form-control" placeholder="DIGITE SEU E-MAIL" id="pwd" />
               </div>
-              <button type="submit" className="mt-3 btn btn-lg btn-primary form-size">CADASTRAR NOVA SENHA</button>
+              <button type="submit" className="mt-3 btn btn-lg btn-primary form-size">REDEFINIR SENHA</button>
               
             </div>
           </form>

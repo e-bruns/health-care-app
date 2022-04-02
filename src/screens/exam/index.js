@@ -11,21 +11,21 @@ function Exam() {
     title: "EXAME DE SANGUE",
     exam_location: "UNIMED",
     date: "11/03/2021",
-    link: "exam/exam_detail",
+    link: "exam/exam-detail",
     id: 0
   },
   {
     title: "EXAME DE ALERGIAS",
     exam_location: "VITALLAB",
     date: "19/03/2021",
-    link: "exam/exam_detail",
+    link: "exam/exam-detail",
     id: 1
   },
   {
     title: "EXAME DE NONON",
     exam_location: "NONON",
     date: "21/03/2021",
-    link: "exam/exam_detail",
+    link: "exam/exam-detail",
     id: 2
   }
   ]
@@ -35,6 +35,10 @@ function Exam() {
   return (
     <>
       <MenuHeaderMain />
+
+      <div className='position-button-new'>
+      <a href='/exam/exam-new' className='btn btn-primary bottom'><h1> + </h1></a>
+      </div>
 
       <div className="CardLast_Group">
         <div className='cardLast'>
