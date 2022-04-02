@@ -13,6 +13,7 @@ import RegisterScreen from "./screens/register/index";
 import ResetPswdScreen from "./screens/resetpswd/index";
 import HomeScreen from "./screens/home/index";
 import ExamScreen from "./screens/exam/index";
+import Appointment from "./screens/appointment/index";
 
 import "./App.css";
 
