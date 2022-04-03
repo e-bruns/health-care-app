@@ -63,7 +63,7 @@ function Register() {
               kind: yup
                 .string()
                 .required("Tipo de Usuário é um campo obrigatório"),
-              crm: yup.string().required("ID Profissional é um campo obrigatório"),
+              crm: yup.string().optional(),
               password: yup.string().required("Senha é um campo obrigatório"),
             })}
             onSubmit={handleRegister}
@@ -169,15 +169,7 @@ function Register() {
                             placeholder="DIGITE SEU ID PROFISSIONAL"
                             id="crm"
                             name="crm"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.crm}
                           />
-                          {errors.crm && touched.crm ? (
-                        <span className="text-danger">{errors.crm}</span>
-                      ) : (
-                        ""
-                      )}
                         </div>
                       </>
                     ) : null}

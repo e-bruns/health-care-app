@@ -42,6 +42,16 @@ const reset = (email, token, password) => {
   }).then(response => response.data)
 }
 
+const examNew = ({ title, date, exam_location, files }) => {
+  return instance
+    .post("/api/v1/exams", {
+      title,
+      date,
+      exam_location,
+      files
+    }).then(response => response.data)
+};
+
 const setSessionApiToken = (response) => {
   const sessionUser = {
     accessToken: response.headers["access-token"],
@@ -61,6 +71,7 @@ const authService = {
   login,
   logout,
   register,
+  examNew,
   forgot,
   reset
 };

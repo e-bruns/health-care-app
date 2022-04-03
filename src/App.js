@@ -51,7 +51,7 @@ function App() {
             }
           />
           <Route
-            path="/exam/exam-detail"
+            path="/exam/exam-detail/:id"
             element={
               <AuthenticatedRoute>
                 <ExamDetail />

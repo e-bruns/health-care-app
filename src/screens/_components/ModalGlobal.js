@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Modal, Button } from 'react-bootstrap'
+import { useNavigate } from "react-router-dom";
 
 function ModalGlobal(props) {
   const [show, setShow] = useState(false);
@@ -7,10 +8,9 @@ function ModalGlobal(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleAction = () => {
-    //executar chamada da api aqui para deleter item e após isso, fechar!
-    handleClose()
-  }
+  const navigate = useNavigate();
+
+  let url = props.url;
 
   return (
     <>
@@ -24,7 +24,11 @@ function ModalGlobal(props) {
           <Button variant="primary" onClick={handleClose}>
             Não
           </Button>
-          <Button variant="danger" onClick={handleAction}>
+          <Button variant="danger" onClick={()=> {
+            props.fnc()
+            handleClose()
+            navigate(url);
+          }}>
             Sim
           </Button>
         </Modal.Footer>

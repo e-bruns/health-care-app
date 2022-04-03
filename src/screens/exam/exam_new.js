@@ -6,18 +6,17 @@ import { useNavigate } from "react-router-dom";
 import authService from "../../services/auth";
 import MenuHeaderMain from "../_components/MenuHeaderMain"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFile, faCalendarDays } from '@fortawesome/free-solid-svg-icons'
 import '../home/index.css'
 
 function ExamNew() {
 
   const navigate = useNavigate();
 
-  async function handleRegister(values, { setSubmitting }) {
+  async function handleExamNew(values, { setSubmitting }) {
     try {
-      await authService.register({ ...values });
+      await authService.examNew({ ...values });
       toast.success('Exame adicionado com sucesso!!');
-      navigate('/exams')
+      navigate('/exam')
     } catch (error) {
       if (error.response.data) {
         error.response.data.errors.full_messages.forEach((message) => {
@@ -48,7 +47,7 @@ function ExamNew() {
             title: "",
             date: "",
             exam_location: "",
-            files: "",
+            
           }}
           validationSchema={yup.object().shape({
             title: yup.string().required("Titulo é um campo obrigatório"),
@@ -59,7 +58,7 @@ function ExamNew() {
             exam_location: yup.string().required("Local é um campo obrigatório"),
             
           })}
-          onSubmit={handleRegister}
+          onSubmit={handleExamNew}
         >
           {({
             values,
