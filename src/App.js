@@ -8,13 +8,14 @@ import {
 } from "react-router-dom";
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/register/index';
-import ResetPswdScreen from './screens/resetpswd/index';
+import ForgotScreen from './screens/forgot/index';
 import HomeScreen from './screens/home/index';
 import ExamScreen from './screens/exam/index';
 import ExamDetail from './screens/exam/exam_detail';
 import ExamNew from './screens/exam/exam_new';
 import Appointment from './screens/appointment/index';
 import { useSelector } from "react-redux";
+import ResetScreen from './screens/reset';
 
 const AuthenticatedRoute = ({ children }) => {
   const { user } = useSelector((state) => state.user);
@@ -31,7 +32,8 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginScreen />} />
           <Route path="/register" element={<RegisterScreen />} />
-          <Route path="/resetpswd" element={<ResetPswdScreen />} />
+          <Route path="/forgot" element={<ForgotScreen />} />
+          <Route path="/reset" element={<ResetScreen />} />
           <Route
             path="/home"
             element={
