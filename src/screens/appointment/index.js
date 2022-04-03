@@ -19,9 +19,8 @@ function Appointment() {
       });
   }, []);
 
-  console.log(exam);
 
-  let arr = [];
+  let exam = [];
 
   /*
   let arr = [{

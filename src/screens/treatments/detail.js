@@ -86,15 +86,15 @@ function TreatmentDetailScreen() {
           }}
         >
           <div className="mb-2">
-            <Row>
-              <Col sm={2}>
-                <div className="d-grid gap-2">
+            <Row className="gap-2">
+              <Col sm={12} md={4}>
+                <div className="d-grid">
                   <Link to="/treatment" className="btn btn-secondary">
                     Voltar
                   </Link>
                 </div>
               </Col>
-              <Col>
+              <Col sm={12} md={4}>
                 <ModalGlobal
                   show={showModal}
                   fnc={() => {
@@ -102,15 +102,16 @@ function TreatmentDetailScreen() {
                   }}
                   title={"Tem certeza que deseja sejá exluir"}
                 >
-                  <div className="d-grid gap-2">
-                    <button className="btn btn-danger flex" type="button">
+                  <div className="d-grid">
+                    <button className="btn btn-danger" type="button">
                       Exluir
                     </button>
                   </div>
                 </ModalGlobal>
               </Col>
-              <Col>
-                <div className="d-grid gap-2">
+
+              <Col sm={12} md={4}>
+                <div className="d-grid">
                   <Link
                     to={`/treatment/${treatment.id}/edit`}
                     className="btn btn-primary flex"
@@ -119,6 +120,7 @@ function TreatmentDetailScreen() {
                   </Link>
                 </div>
               </Col>
+              
             </Row>
           </div>
         </div>
