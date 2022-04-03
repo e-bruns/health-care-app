@@ -15,7 +15,7 @@ function CardGlobal(props) {
       <div>{props.date}</div>
     </div>
 
-    <div className='cardLast__button' onClick={() => navigate("/" + props.link)}>DETALHAR</div>
+    <div className='cardLast__button' onClick={() => navigate(props.link)}>DETALHAR</div>
   </div>
   )
 }

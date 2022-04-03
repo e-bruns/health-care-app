@@ -77,7 +77,7 @@ const TreatmentsScreen = () => {
               title={treatment.title}
               exam_location={treatment.treatment_location}
               date={treatment.date}
-              link={'treatment/' + treatment.id + '/detail'}
+              link={'/treatment/' + treatment.id + '/detail'}
               key={index}
             ></CardGlobal>
           ))}

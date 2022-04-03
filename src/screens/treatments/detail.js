@@ -97,7 +97,7 @@ function TreatmentDetailScreen() {
               <Col>
                 <ModalGlobal
                   show={showModal}
-                  handleAction={() => {
+                  fnc={() => {
                     handleRemove()
                   }}
                   title={"Tem certeza que deseja sejá exluir"}
