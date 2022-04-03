@@ -4,12 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperclip, faCalendarDays } from '@fortawesome/free-solid-svg-icons'
 import '../home/index.css'
 import ModalGlobal from './../_components/ModalGlobal'
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, Navigate, useNavigate } from 'react-router-dom';
 import instance from '../../axios'
 
 function ExamDetail() {
 
     const parametros = useParams();
+    const navegate = useNavigate();
     const idExam = parametros.id;
     console.log(idExam);
 
@@ -35,6 +36,7 @@ function ExamDetail() {
     await instance
     .delete("/api/v1/exams/"+id)
     .then((response) => {
+      navegate('/exam')
     }
     )
     .catch((err) => {
@@ -74,7 +76,9 @@ function ExamDetail() {
             </div>
         </div>
         <div className='cardLast__block_line_no_background' style={{justifyContent: 'center', width: '100%'}}>
-          <ModalGlobal title="Deseja excluir exame?" fnc={()=>deleteData(idExam)} url="/exam"><a className='btn btn-danger m-3'>EXCLUIR</a></ModalGlobal>
+          <ModalGlobal title="Deseja excluir exame?" fnc={()=> {
+            deleteData(idExam)
+          }}><a className='btn btn-danger m-3'>EXCLUIR</a></ModalGlobal>
           <a className='btn btn-primary m-3'>EDITAR</a>
         </div>
       </div>
