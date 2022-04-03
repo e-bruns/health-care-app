@@ -29,7 +29,7 @@ function MenuHeaderMain() {
           <div onClick={() => navigate("/home")}>Home</div>
           <div onClick={() => navigate("/appointment")}>Consultas</div>
           <div onClick={() => navigate("/exam")}>Exames</div>
-          <div>Tratamentos</div>
+          <div onClick={() => navigate('/treatment')}>Tratamentos</div>
           <div>Compartilhamentos</div>
           <div onClick={() => handlerLogout()}>Logout</div>
         </div>

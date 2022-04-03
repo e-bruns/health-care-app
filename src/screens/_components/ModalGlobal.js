@@ -1,33 +1,40 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import { useNavigate } from "react-router-dom";
 
 function ModalGlobal(props) {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(props.show);
 
-  const handleClose = () => setShow(false);
+  useEffect(() => {
+    setShow(props.show)
+  }, [props.show])
+
+  //const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const navigate = useNavigate();
+  const handleAction = () => {
+    //executar chamada da api aqui para deleter item e após isso, fechar!
+    props.fnc();
+    setShow(false);
+  }
 
-  let url = props.url;
 
   return (
     <>
+    
       <div onClick={handleShow}>{props.children}</div>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show}>
         <Modal.Header closeButton>
           <Modal.Title>{props.title}</Modal.Title>
         </Modal.Header>
         {/* <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body> */}
         <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={() => setShow(false)}>
             Não
           </Button>
           <Button variant="danger" onClick={()=> {
-            props.fnc()
-            handleClose()
-            navigate(url);
+            handleAction();
+            
           }}>
             Sim
           </Button>
