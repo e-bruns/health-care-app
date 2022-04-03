@@ -26,6 +26,22 @@ const register = ({ name, password, email, kind, cell_phone, crm }) => {
     .then(setSessionApiToken);
 };
 
+const forgot = (email) => {
+  return instance
+  .post("/api/v1/password/forgot", {
+    email,
+  }).then(response => response.data)
+}
+
+const reset = (email, token, password) => {
+  return instance
+  .post("/api/v1/password/reset", {
+    email,
+    password,
+    token
+  }).then(response => response.data)
+}
+
 const setSessionApiToken = (response) => {
   const sessionUser = {
     accessToken: response.headers["access-token"],
@@ -45,6 +61,8 @@ const authService = {
   login,
   logout,
   register,
+  forgot,
+  reset
 };
 
 export default authService;
