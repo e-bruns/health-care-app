@@ -16,6 +16,9 @@ import ExamNew from './screens/exam/exam_new';
 import Appointment from './screens/appointment/index';
 import { useSelector } from "react-redux";
 import ResetScreen from './screens/reset';
+import TreatmentsScreen from './screens/treatments';
+import TreatmentFormScreen from './screens/treatments/form';
+import TreatmentDetailScreen from './screens/treatments/detail';
 
 const AuthenticatedRoute = ({ children }) => {
   const { user } = useSelector((state) => state.user);
@@ -66,6 +69,38 @@ function App() {
               </AuthenticatedRoute>
             }
           />    
+
+          <Route
+            path="/treatment"
+            element={<AuthenticatedRoute>
+              <TreatmentsScreen />
+            </AuthenticatedRoute>}
+            >
+          </Route>
+
+          <Route
+            path="/treatment/new"
+            element={<AuthenticatedRoute>
+              <TreatmentFormScreen />
+            </AuthenticatedRoute>}
+            >
+          </Route>
+
+          <Route
+            path="/treatment/:id/detail"
+            element={<AuthenticatedRoute>
+              <TreatmentDetailScreen />
+            </AuthenticatedRoute>}
+            >
+          </Route>
+
+          <Route
+            path="/treatment/:id/edit"
+            element={<AuthenticatedRoute>
+              <TreatmentFormScreen />
+            </AuthenticatedRoute>}
+            >
+          </Route>
 
           <Route path="/appointment" element={<Appointment />} />
           <Route path='*' element={<LoginScreen />} />
