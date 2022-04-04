@@ -10,6 +10,7 @@ import treatmentService from "../../services/treatment";
 import { toast } from "react-toastify";
 
 const TreatmentsScreen = () => {
+
   const [treatments, setTreatments] = useState([]);
   const [page, setPage] = useState(1);
 
@@ -29,7 +30,7 @@ const TreatmentsScreen = () => {
         }
       }
     } catch (error) {
-      toast.error('Falha ao carregar tratamentos')
+      toast.error('Falha ao carregar tratamentos');
     } finally {
       setPage(page + 1);
     }

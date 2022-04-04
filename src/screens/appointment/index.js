@@ -6,82 +6,47 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import CardGlobal from '../_components/CardGlobal';
 import instance from '../../axios';
 
-function Appointment() {
+import appointmentsService from "../../services/appointment";
+import { toast } from "react-toastify";
 
-  const [appointment, setAppointment] = useState();
+function Appointments() {
+
+  const [appointments, setAppointment] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    instance
-      .get("/api/v1/exams")
-      .then((response) => setAppointment(response.data))
-      .catch((err) => {
-        console.error("Ops! Ocorreu um erro" + err);
-      });
+    fetchAppointment();
   }, []);
 
-  console.log(exam);
+  const fetchAppointment = async () => {
+    try {
+      const data = await appointmentsService.index({ page, search: "" });
+      if (data && data.length > 0) {
+        if (page === 1) {
+          setAppointment(data);
+        } else {
+          console.log(appointments, data);
+          setAppointment(appointments.concat(data));
+        }
+      }
+    } catch (error) {
+      toast.error('Falha ao carregar tratamentos');
+    } finally {
+      setPage(page + 1);
+    }
+  };
 
-  let arr = [];
-
-  /*
-  let arr = [{
-    title: "EXAME DE SANGUE",
-    exam_location: "UNIMED",
-    date: "11/03/2021",
-    link: "exam/exam-detail",
-    id: 0
-  },
-  {
-    title: "EXAME DE ALERGIAS",
-    exam_location: "VITALLAB",
-    date: "19/03/2021",
-    link: "exam/exam-detail",
-    id: 1
-  },
-  {
-    title: "EXAME DE NONON",
-    exam_location: "NONON",
-    date: "21/03/2021",
-    link: "exam/exam-detail",
-    id: 2
-  }
-  ]
-  
-  console.log(arr) 
-  */
-
-  if (exam.length === 0) {
-    return (
-      <>
-        <MenuHeaderMain />
-
-        <div className='position-button-new'>
-          <a href='/exam/exam-new' className='btn btn-primary bottom'><h1> + </h1></a>
-        </div>
-
-        <div className="CardLast_Group">
-          <div className='cardLast'>
-            <div className='cardLast__title text-center'>EXAMES</div>
-            <div className='cardLast__block_line '>
-              <p className="text-center">NENHUM EXAME CADASTRADO! <br />
-                Clique em " + " para adicionar</p>
-            </div>
-          </div>
-        </div>
-      </>
-    );
-
-  } else return (
+  return (
     <>
       <MenuHeaderMain />
 
       <div className='position-button-new'>
-        <a href='/exam/exam-new' className='btn btn-primary bottom'><h1> + </h1></a>
+        <a href='/appointment/new' className='btn btn-primary bottom'><h1> + </h1></a>
       </div>
 
       <div className="CardLast_Group">
         <div className='cardLast'>
-          <div className='cardLast__title text-center'>EXAMES</div>
+          <div className='cardLast__title text-center'>CONSULTAS</div>
           <div className='cardLast__block_line'>
             <div >
               <input type="text" className="form-control" placeholder="PESQUISAR" />
@@ -95,8 +60,8 @@ function Appointment() {
 
       <div className="CardLast_Group">
 
-        {exam.map((exam) =>
-          <CardGlobal title={exam.title} exam_location={exam.exam_location} date={exam.date} link={exam.link} key={exam.id}></CardGlobal>
+        {appointments.map((appointment) =>
+          <CardGlobal title={appointment.title} exam_location={appointment.professional_name} date={appointment.date} link={'/appointment/' + appointment.id + '/detail'} key={appointment.id}></CardGlobal>
         )
         }
 
@@ -105,4 +70,4 @@ function Appointment() {
   );
 }
 
-export default Appointment;
+export default Appointments;

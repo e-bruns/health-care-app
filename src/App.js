@@ -13,12 +13,14 @@ import HomeScreen from './screens/home/index';
 import ExamScreen from './screens/exam/index';
 import ExamDetail from './screens/exam/exam_detail';
 import ExamNew from './screens/exam/exam_new';
-import Appointment from './screens/appointment/index';
 import { useSelector } from "react-redux";
 import ResetScreen from './screens/reset';
 import TreatmentsScreen from './screens/treatments';
 import TreatmentFormScreen from './screens/treatments/form';
 import TreatmentDetailScreen from './screens/treatments/detail';
+import Appointment from './screens/appointment/index';
+import AppointmentFormScreen from './screens/appointment/form';
+import AppointmentsDetailScreen from './screens/appointment/detail';
 
 const AuthenticatedRoute = ({ children }) => {
   const { user } = useSelector((state) => state.user);
@@ -60,7 +62,7 @@ function App() {
                 <ExamDetail />
               </AuthenticatedRoute>
             }
-          />    
+          />
           <Route
             path="/exam/exam-new"
             element={
@@ -68,14 +70,14 @@ function App() {
                 <ExamNew />
               </AuthenticatedRoute>
             }
-          />    
+          />
 
           <Route
             path="/treatment"
             element={<AuthenticatedRoute>
               <TreatmentsScreen />
             </AuthenticatedRoute>}
-            >
+          >
           </Route>
 
           <Route
@@ -83,7 +85,7 @@ function App() {
             element={<AuthenticatedRoute>
               <TreatmentFormScreen />
             </AuthenticatedRoute>}
-            >
+          >
           </Route>
 
           <Route
@@ -91,7 +93,7 @@ function App() {
             element={<AuthenticatedRoute>
               <TreatmentDetailScreen />
             </AuthenticatedRoute>}
-            >
+          >
           </Route>
 
           <Route
@@ -99,10 +101,42 @@ function App() {
             element={<AuthenticatedRoute>
               <TreatmentFormScreen />
             </AuthenticatedRoute>}
-            >
+          >
           </Route>
 
-          <Route path="/appointment" element={<Appointment />} />
+          <Route
+            path="/appointment"
+            element={<AuthenticatedRoute>
+              <Appointment />
+            </AuthenticatedRoute>}
+          >
+          </Route>
+
+          <Route
+            path="/appointment/new"
+            element={<AuthenticatedRoute>
+              <AppointmentFormScreen />
+            </AuthenticatedRoute>}
+          >
+          </Route>
+
+          <Route
+            path="/appointment/:id/detail"
+            element={<AuthenticatedRoute>
+              <AppointmentsDetailScreen />
+            </AuthenticatedRoute>}
+          >
+          </Route>
+
+          <Route
+            path="/appointment/:id/edit"
+            element={<AuthenticatedRoute>
+              <AppointmentFormScreen />
+            </AuthenticatedRoute>}
+          >
+          </Route>
+
+
           <Route path='*' element={<LoginScreen />} />
         </Routes>
       </Router>
