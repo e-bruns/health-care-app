@@ -44,8 +44,6 @@ const TreatmentsScreen = () => {
     if (treatments.length === 0) {
       return (
         <>
-  
-
           <div className="CardLast_Group">
             <div className="cardLast">
               <div className="text-center p-2">
