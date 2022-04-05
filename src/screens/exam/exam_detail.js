@@ -10,7 +10,7 @@ import instance from '../../axios'
 function ExamDetail() {
 
     const parametros = useParams();
-    const navegate = useNavigate();
+    const navigate = useNavigate();
     const idExam = parametros.id;
     console.log(idExam);
 
@@ -36,7 +36,7 @@ function ExamDetail() {
     await instance
     .delete("/api/v1/exams/"+id)
     .then((response) => {
-      navegate('/exam')
+      navigate('/exam')
     }
     )
     .catch((err) => {
@@ -79,7 +79,7 @@ function ExamDetail() {
           <ModalGlobal title="Deseja excluir exame?" fnc={()=> {
             deleteData(idExam)
           }}><a className='btn btn-danger m-3'>EXCLUIR</a></ModalGlobal>
-          <a className='btn btn-primary m-3'>EDITAR</a>
+          <a  onClick={() => navigate("/exam/" + idExam + "/edit")} className='btn btn-primary m-3'>EDITAR</a>
         </div>
       </div>
       
