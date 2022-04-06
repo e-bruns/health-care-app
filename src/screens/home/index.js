@@ -51,15 +51,11 @@ function HomeScreen() {
     }
   ];
 
-<<<<<<< HEAD
-
-=======
   useEffect(() => {
     (async () => {
       const data = await dashboardService.index();
-    })()
-  }, [])
->>>>>>> ad46ed374f56962dec30dcff62f4431bc20e7054
+    })();
+  }, []);
 
   return (
     <div>
