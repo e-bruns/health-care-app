@@ -6,11 +6,7 @@ import './index.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from './../../features/userSlice';
 import instance from '../../axios';
-<<<<<<< HEAD
-import lastsRegisters from "../../services/lastsRegisters";
-=======
 import dashboardService from '../../services/dashboard';
->>>>>>> ad46ed374f56962dec30dcff62f4431bc20e7054
 
 function HomeScreen() {
 
