@@ -12,7 +12,7 @@ import ForgotScreen from './screens/forgot/index';
 import HomeScreen from './screens/home/index';
 import ExamScreen from './screens/exam/index';
 import ExamDetail from './screens/exam/exam_detail';
-import ExamNew from './screens/exam/exam_new';
+import ExamFormScreen from './screens/exam/form';
 import { useSelector } from "react-redux";
 import ResetScreen from './screens/reset';
 import TreatmentsScreen from './screens/treatments';
@@ -56,7 +56,7 @@ function App() {
             }
           />
           <Route
-            path="/exam/exam-detail/:id"
+            path="/exam/:id/detail"
             element={
               <AuthenticatedRoute>
                 <ExamDetail />
@@ -64,10 +64,18 @@ function App() {
             }
           />
           <Route
-            path="/exam/exam-new"
+            path="/exam/new"
             element={
               <AuthenticatedRoute>
-                <ExamNew />
+                <ExamFormScreen />
+              </AuthenticatedRoute>
+            }
+          />
+          <Route
+            path="/exam/:id/edit"
+            element={
+              <AuthenticatedRoute>
+                <ExamFormScreen />
               </AuthenticatedRoute>
             }
           />

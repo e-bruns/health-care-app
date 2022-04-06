@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import MenuHeaderMain from "../_components/MenuHeaderMain"
-import { Row, Col, Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import CardGlobal from '../_components/CardGlobal'
@@ -25,49 +24,6 @@ function Exam() {
     fetchData();
   }, [])
 
-  // async function deleteData(){
-  //   await instance
-  //   .delete("/api/v1/exams/38")
-  //   .then((response) => {
-
-  //   }
-  //   )
-  //   .catch((err) => {
-  //     console.error("Ops! Ocorreu um erro" + err);
-  //   });
-  // }
-  // deleteData();
-
-  // console.log(exam)
-
-  //let arr = []
-
-  /*
-  let arr = [{
-    title: "EXAME DE SANGUE",
-    exam_location: "UNIMED",
-    date: "11/03/2021",
-    link: "exam/exam-detail",
-    id: 0
-  },
-  {
-    title: "EXAME DE ALERGIAS",
-    exam_location: "VITALLAB",
-    date: "19/03/2021",
-    link: "exam/exam-detail",
-    id: 1
-  },
-  {
-    title: "EXAME DE NONON",
-    exam_location: "NONON",
-    date: "21/03/2021",
-    link: "exam/exam-detail",
-    id: 2
-  }
-  ]
-  
-  console.log(arr) */
-
     if(exam.length === 0){
 
     
@@ -77,7 +33,7 @@ function Exam() {
       <MenuHeaderMain />
 
       <div className='position-button-new'>
-      <a href='/exam/exam-new' className='btn btn-primary bottom'><h1> + </h1></a>
+      <a href='/exam/new' className='btn btn-primary bottom'><h1> + </h1></a>
       </div>
 
       <div className="CardLast_Group">
@@ -97,7 +53,7 @@ function Exam() {
       <MenuHeaderMain />
 
       <div className='position-button-new'>
-      <a href='/exam/exam-new' className='btn btn-primary bottom'><h1> + </h1></a>
+      <a href='/exam/new' className='btn btn-primary bottom'><h1> + </h1></a>
       </div>
 
       <div className="CardLast_Group">
@@ -117,7 +73,7 @@ function Exam() {
       <div className="CardLast_Group">
 
         { exam.map((examSingle) =>
-          <CardGlobal title={examSingle.title} exam_location={examSingle.exam_location} date={examSingle.date} link={"/exam/exam-detail/"+examSingle.id} key={examSingle.id}></CardGlobal>
+          <CardGlobal title={examSingle.title} exam_location={examSingle.exam_location} date={examSingle.date} link={"/exam/" + examSingle.id + "/detail"} key={examSingle.id}></CardGlobal>
           )
         }
 
