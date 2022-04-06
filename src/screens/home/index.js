@@ -6,6 +6,7 @@ import './index.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from './../../features/userSlice';
 import instance from '../../axios';
+import dashboardService from '../../services/dashboard';
 
 function HomeScreen() {
 
@@ -29,13 +30,9 @@ function HomeScreen() {
   ];
 
   useEffect(() => {
-    instance.get('/api/v1/exams', { 
-      headers: {
-        'Content-Type': 'application/json',
-      }
-     }).then(response => {
-      console.log(response)
-    })
+    (async () => {
+      const data = await dashboardService.index();
+    })()
   }, [])
 
   return (

@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFile, faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import '../home/index.css';
 import examService from '../../services/exam';
+import FileUpload from '../_components/FileUploader';
 
 
 function ExamFormScreen() {
@@ -15,7 +16,7 @@ function ExamFormScreen() {
     title: "",
     exam_location: "",
     date: "",
-    files: "",
+    files: [],
   });
 
   const navigate = useNavigate();
@@ -146,14 +147,9 @@ function ExamFormScreen() {
                     )}
                   </div>
                   <div className="mt-3 text-start">
-                    <label htmlFor="files">ADCIONAR ARQUIVO</label>
-                    <input
-                      className='bg-primary'
-                      type="file"
-                      name="files"
-                      multiple
-                      value={values.files}
-                    />
+                    <FileUpload onUpdate={(files) => {
+                      setFieldValue('files', files)
+                    }} />
                   </div>
                   
                     <button
