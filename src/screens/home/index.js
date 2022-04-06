@@ -6,10 +6,33 @@ import './index.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from './../../features/userSlice';
 import instance from '../../axios';
+import lastsRegisters from "../../services/lastsRegisters";
 
 function HomeScreen() {
 
   const user = useSelector(selectUser);
+
+  // useEffect(() => {
+  //   lastExams();
+  // }, []);
+
+  // const fetchTreatments = async (searched = false) => {
+  //   try {
+  //     const data = await treatmentService.index({ page: pg, q });
+  //     if (data && data.length > 0) {
+  //       if (pg === 1) {
+  //         setTreatments(data);
+  //       } else {
+  //         setTreatments(treatments.concat(data));
+  //       }
+  //     }
+  //   } catch (error) {
+  //     toast.error("Falha ao carregar tratamentos");
+  //   } finally {
+  //     //setPage(pg + 1);
+  //   }
+  // };
+
   const consultas = [
     {
       id: 1,
@@ -28,15 +51,7 @@ function HomeScreen() {
     }
   ];
 
-  useEffect(() => {
-    instance.get('/api/v1/exams', { 
-      headers: {
-        'Content-Type': 'application/json',
-      }
-     }).then(response => {
-      console.log(response)
-    })
-  }, [])
+
 
   return (
     <div>
