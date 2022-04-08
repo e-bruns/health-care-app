@@ -115,6 +115,7 @@ function ExamDetail() {
           className="cardLast__block_line_no_background"
           style={{ justifyContent: "center", width: "100%" }}
         >
+          <a className="btn btn-secondary m-3">VOLTAR</a>
           <ModalGlobal
             title="Deseja excluir exame?"
             fnc={() => {
