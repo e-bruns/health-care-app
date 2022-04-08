@@ -1,0 +1,19 @@
+.Content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-start;
+}
+
+.ReadOnlyInput {
+  background: #FFFFFF;
+  border-radius: 5px;
+  min-height: 35px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  color: #3C96D7;
+  padding: 0.8rem;
+  width: 100%;
+}

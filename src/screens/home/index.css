@@ -19,4 +19,8 @@
   .CardLast_Group {
     flex-direction: column;
   }
+
+  .CardLast_Single {
+    width: 100vw;
+  }
 }

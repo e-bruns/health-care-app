@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { Col, Row } from "react-bootstrap";
+import { FaTrashAlt } from "react-icons/fa";
 
 const FileUpload = ({ onUpdate }) => {
   const [files, setFiles] = useState([]);
@@ -12,7 +13,7 @@ const FileUpload = ({ onUpdate }) => {
           <div className="mt-3 text-start">
             <label htmlFor="files">ADCIONAR ARQUIVO</label>
             <div
-              className="bg-primary p-2"
+              className="p-2"
               style={{
                 border: "2px dashed white",
               }}
@@ -39,35 +40,37 @@ const FileUpload = ({ onUpdate }) => {
           </div>
         </Col>
       </Row>
-      <Row>
+      <Row className="justify-content-center flex-column p-2 mt-2">
         {files.length > 0 &&
           Array.from(files).map((f, index) => {
             return (
-              <Row
-                key={index}
-                className="align-items-center bg-light text-dark p-2 my-2 justify-content-center"
-              >
-                <Col>{f.name}</Col>
-                <Col className="text-end">
-                  <button
-                    type="button"
-                    className="btn btn-primary"
-                    onClick={() => {
-                      const dataTransfer = new DataTransfer();
-                      for (let i = 0; i < files.length; i++) {
-                        const file = files[i];
-                        if (i !== index) {
-                          dataTransfer.items.add(file);
+              <Col>
+                <Row
+                  key={index}
+                  className="align-items-center text-white text-dark p-2 my-2 justify-content-center border-bottom border-1"
+                >
+                  <Col>{f.name}</Col>
+                  <Col className="text-end">
+                    <button
+                      type="button"
+                      className="btn btn-primary-outline text-white font-weight"
+                      onClick={() => {
+                        const dataTransfer = new DataTransfer();
+                        for (let i = 0; i < files.length; i++) {
+                          const file = files[i];
+                          if (i !== index) {
+                            dataTransfer.items.add(file);
+                          }
                         }
-                      }
-                      setFiles(dataTransfer.files);
-                      onUpdate(dataTransfer.files);
-                    }}
-                  >
-                    X
-                  </button>
-                </Col>
-              </Row>
+                        setFiles(dataTransfer.files);
+                        onUpdate(dataTransfer.files);
+                      }}
+                    >
+                      <FaTrashAlt />
+                    </button>
+                  </Col>
+                </Row>
+              </Col>
             );
           })}
       </Row>

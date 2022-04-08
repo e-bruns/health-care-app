@@ -8,9 +8,9 @@ import CardGlobal from "../_components/CardGlobal";
 import { useEffect, useState } from "react";
 import treatmentService from "../../services/treatment";
 import { toast } from "react-toastify";
+import { FaPlus } from "react-icons/fa";
 
 const TreatmentsScreen = () => {
-
   const [treatments, setTreatments] = useState([]);
   const [page, setPage] = useState(1);
   const [q, setQ] = useState("");
@@ -49,10 +49,13 @@ const TreatmentsScreen = () => {
             <div className="cardLast">
               <div className="text-center p-2">
                 <div className="">
-                  <div className="text-center" style={{
-                    color: '#3C96D7',
-                    fontWeight: 650
-                  }}>
+                  <div
+                    className="text-center"
+                    style={{
+                      color: "#3C96D7",
+                      fontWeight: 650,
+                    }}
+                  >
                     NENHUM TRATAMENTO CADASTRADO! <br />
                     Clique em " + " para adicionar
                   </div>
@@ -64,24 +67,26 @@ const TreatmentsScreen = () => {
       );
     }
     return (
-      <div className="CardLast_Group">
-        <InfiniteScroll
-          dataLength={treatments.length}
-          next={fetchTreatments}
-          hasMore={true}
-          loader={<h4 className="text-center text-white">Buscando...</h4>}
-        >
+      <InfiniteScroll
+        dataLength={treatments.length}
+        next={fetchTreatments}
+        hasMore={true}
+        loader={<h4 className="text-center text-white">Buscando...</h4>}
+      >
+        <div className="row m-1 justify-content-center">
           {treatments.map((treatment, index) => (
-            <CardGlobal
-              title={treatment.title}
-              exam_location={treatment.treatment_location}
-              date={treatment.date}
-              link={"/treatment/" + treatment.id + "/detail"}
-              key={index}
-            ></CardGlobal>
+            <div className="col-xs-12 col-md-4">
+              <CardGlobal
+                title={treatment.title}
+                exam_location={treatment.treatment_location}
+                date={treatment.date}
+                link={"/treatment/" + treatment.id + "/detail"}
+                key={index}
+              ></CardGlobal>
+            </div>
           ))}
-        </InfiniteScroll>
-      </div>
+        </div>
+      </InfiniteScroll>
     );
   };
 
@@ -89,34 +94,42 @@ const TreatmentsScreen = () => {
     <>
       <MenuHeaderMain />
       <div className="position-button-new">
-        <Link to="/treatment/new" className="btn btn-primary bottom">
-          <h1> + </h1>
+        <Link
+          to="/treatment/new"
+          className="btn btn-primary bottom rounded-circle"
+        >
+          <h1>
+            {" "}
+            <FaPlus />{" "}
+          </h1>
         </Link>
       </div>
 
-      <div className="CardLast_Group">
-        <div className="cardLast">
-          <div className="cardLast__title text-center">Tratamentos</div>
-          <div className="d-flex px-2 gap-1 justify-content-center mb-2">
-            <div>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="PESQUISAR"
-                onChange={(e) => setQ(e.target.value)}
-              />
+      <div className="row m-1 justify-content-center">
+        <div className="col-xs-2 col-md-4 col-lg-4">
+          <div className="cardLast">
+            <div className="cardLast__title text-center">Tratamentos</div>
+            <div className="d-flex px-2 gap-1 justify-content-center mb-2">
+              <div>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="PESQUISAR"
+                  onChange={(e) => setQ(e.target.value)}
+                />
+              </div>
+              <button
+                className="btn btn-primary"
+                onClick={() => {
+                  fetchTreatments(true);
+                }}
+              >
+                <FontAwesomeIcon
+                  icon={faMagnifyingGlass}
+                  className="text-white"
+                />
+              </button>
             </div>
-            <button
-              className="btn btn-primary"
-              onClick={() => {
-                fetchTreatments(true);
-              }}
-            >
-              <FontAwesomeIcon
-                icon={faMagnifyingGlass}
-                className="text-white"
-              />
-            </button>
           </div>
         </div>
       </div>

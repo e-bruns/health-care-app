@@ -23,7 +23,7 @@
 
 .MenuHeaderMain__button {
   height: 50px;
-  width: 70px;
+  width: 60px;
   background-color: var(--color-blue-dark-primary);
   display: flex;
   position: absolute;

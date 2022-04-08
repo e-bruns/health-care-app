@@ -1,0 +1,50 @@
+.CardShare {
+  background-color: #fff;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.17);
+  border-radius: 4px;
+  min-height: 158px;
+}
+
+.CardShare--header {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 18px;
+  color: #3C96D7;
+}
+
+.CardShare--box {
+  background: rgba(60, 150, 215, 0.1);
+  border: 1px solid rgba(60, 150, 215, 0.09);
+  box-sizing: border-box;
+  border-radius: 3px;
+  color: #3C96D7;
+  font-size: 11px;
+  line-height: 15px;
+}
+
+.Tab {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.Tab-item {
+  flex: 1;
+  text-align: center;
+  background-color: #ECF5FB;
+  cursor: pointer;
+  color: #3C96D7;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 22px;
+  text-align: center;
+  height: 28px;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.Tab-item.active {
+  background-color: #ffff;
+}
