@@ -1,26 +1,28 @@
-import React, { useEffect } from 'react';
-import './App.css';
+import React, { useEffect } from "react";
+import "./App.css";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
 } from "react-router-dom";
-import LoginScreen from './screens/LoginScreen';
-import RegisterScreen from './screens/register/index';
-import ForgotScreen from './screens/forgot/index';
-import HomeScreen from './screens/home/index';
-import ExamScreen from './screens/exam/index';
-import ExamDetail from './screens/exam/exam_detail';
-import ExamFormScreen from './screens/exam/form';
+import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/register/index";
+import ForgotScreen from "./screens/forgot/index";
+import HomeScreen from "./screens/home/index";
+import ExamScreen from "./screens/exam/index";
+import ExamDetail from "./screens/exam/exam_detail";
+import ExamFormScreen from "./screens/exam/form";
 import { useSelector } from "react-redux";
-import ResetScreen from './screens/reset';
-import TreatmentsScreen from './screens/treatments';
-import TreatmentFormScreen from './screens/treatments/form';
-import TreatmentDetailScreen from './screens/treatments/detail';
-import Appointment from './screens/appointment/index';
-import AppointmentFormScreen from './screens/appointment/form';
-import AppointmentsDetailScreen from './screens/appointment/detail';
+import ResetScreen from "./screens/reset";
+import TreatmentsScreen from "./screens/treatments";
+import TreatmentFormScreen from "./screens/treatments/form";
+import TreatmentDetailScreen from "./screens/treatments/detail";
+import Appointment from "./screens/appointment/index";
+import AppointmentFormScreen from "./screens/appointment/form";
+import AppointmentsDetailScreen from "./screens/appointment/detail";
+import ShareScreen from "./screens/share";
+import FormShareScreen from "./screens/share/form";
 
 const AuthenticatedRoute = ({ children }) => {
   const { user } = useSelector((state) => state.user);
@@ -82,70 +84,81 @@ function App() {
 
           <Route
             path="/treatment"
-            element={<AuthenticatedRoute>
-              <TreatmentsScreen />
-            </AuthenticatedRoute>}
-          >
-          </Route>
+            element={
+              <AuthenticatedRoute>
+                <TreatmentsScreen />
+              </AuthenticatedRoute>
+            }
+          ></Route>
 
           <Route
             path="/treatment/new"
-            element={<AuthenticatedRoute>
-              <TreatmentFormScreen />
-            </AuthenticatedRoute>}
-          >
-          </Route>
+            element={
+              <AuthenticatedRoute>
+                <TreatmentFormScreen />
+              </AuthenticatedRoute>
+            }
+          ></Route>
 
           <Route
             path="/treatment/:id/detail"
-            element={<AuthenticatedRoute>
-              <TreatmentDetailScreen />
-            </AuthenticatedRoute>}
-          >
-          </Route>
+            element={
+              <AuthenticatedRoute>
+                <TreatmentDetailScreen />
+              </AuthenticatedRoute>
+            }
+          ></Route>
 
           <Route
             path="/treatment/:id/edit"
-            element={<AuthenticatedRoute>
-              <TreatmentFormScreen />
-            </AuthenticatedRoute>}
-          >
-          </Route>
+            element={
+              <AuthenticatedRoute>
+                <TreatmentFormScreen />
+              </AuthenticatedRoute>
+            }
+          ></Route>
 
           <Route
             path="/appointment"
-            element={<AuthenticatedRoute>
-              <Appointment />
-            </AuthenticatedRoute>}
-          >
-          </Route>
+            element={
+              <AuthenticatedRoute>
+                <Appointment />
+              </AuthenticatedRoute>
+            }
+          ></Route>
 
           <Route
             path="/appointment/new"
-            element={<AuthenticatedRoute>
-              <AppointmentFormScreen />
-            </AuthenticatedRoute>}
-          >
-          </Route>
+            element={
+              <AuthenticatedRoute>
+                <AppointmentFormScreen />
+              </AuthenticatedRoute>
+            }
+          ></Route>
 
           <Route
             path="/appointment/:id/detail"
-            element={<AuthenticatedRoute>
-              <AppointmentsDetailScreen />
-            </AuthenticatedRoute>}
-          >
-          </Route>
+            element={
+              <AuthenticatedRoute>
+                <AppointmentsDetailScreen />
+              </AuthenticatedRoute>
+            }
+          ></Route>
 
           <Route
             path="/appointment/:id/edit"
-            element={<AuthenticatedRoute>
-              <AppointmentFormScreen />
-            </AuthenticatedRoute>}
-          >
-          </Route>
+            element={
+              <AuthenticatedRoute>
+                <AppointmentFormScreen />
+              </AuthenticatedRoute>
+            }
+          ></Route>
 
+          <Route path="/share" element={<ShareScreen />}></Route>
 
-          <Route path='*' element={<LoginScreen />} />
+          <Route path="/share/new" element={<FormShareScreen />}></Route>
+
+          <Route path="*" element={<LoginScreen />} />
         </Routes>
       </Router>
     </div>
