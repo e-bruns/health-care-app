@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperclip, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 
-import { Modal, Button } from "react-bootstrap";
 
 import MenuHeaderMain from "../_components/MenuHeaderMain";
 import treatmentService from "../../services/treatment";
-import "../home/index.css";
 import { Col, Row } from "react-bootstrap";
 import ModalGlobal from "../_components/ModalGlobal";
 import { toast } from "react-toastify";
@@ -68,13 +65,13 @@ function TreatmentDetailScreen() {
             </ReadOnlyInput>
           </Col>
 
-          <Col xs={6}>
+          <Col xs={12}>
             <ReadOnlyInput>{treatment.date}</ReadOnlyInput>
           </Col>
 
-          <Col xs={5} >
+          <Col xs={12} >
             <ReadOnlyInput>
-              <div className="text-center">{treatment.treatment_location}</div>
+              <div>{treatment.treatment_location}</div>
             </ReadOnlyInput>
           </Col>
 

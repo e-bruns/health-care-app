@@ -1,0 +1,32 @@
+.CardTitle {
+  background-color: white;
+  border-radius: 5px;
+  margin: 20px;
+  box-shadow: 2px 2px 10px #00000040;
+  padding-bottom: 6px;
+}
+
+.CardTitle .title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #3C96D7;
+  padding-top: 8px;
+  border-bottom: 3px solid #3C96D7;
+  margin: 10px;
+  font-family: 'Open Sans';
+  text-align: center;
+}
+
+.CardTitle .divisor {
+  height: 2px;
+}
+
+.CardTitle .body {
+  display: flex;
+  padding: 6px;
+  gap: 20px
+}
+
+.CardTitle .body input {
+  width: 100%;
+}
