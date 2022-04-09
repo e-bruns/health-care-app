@@ -78,7 +78,7 @@ function AppointmentsDetailScreen() {
         >
           <div className="mb-2">
             <Row>
-              <Col sm={2}>
+              <Col>
                 <div className="d-grid gap-2">
                   <Link to="/appointment" className="btn btn-secondary">
                     Voltar

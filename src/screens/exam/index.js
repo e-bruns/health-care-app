@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import MenuHeaderMain from "../_components/MenuHeaderMain"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { FaPlus } from "react-icons/fa";
 import CardGlobal from '../_components/CardGlobal'
 import instance from '../../axios'
 
@@ -25,15 +27,20 @@ function Exam() {
   }, [])
 
     if(exam.length === 0){
-
-    
- 
+      
     return (
       <>
       <MenuHeaderMain />
 
       <div className='position-button-new'>
-      <a href='/exam/new' className='btn btn-primary bottom'><h1> + </h1></a>
+        <Link 
+          to="/exam/new"
+          className="btn btn-primary bottom rounded-circle"
+        >
+          <h1>{" "}
+          <FaPlus />{" "}
+          </h1>
+        </Link>
       </div>
 
       <div className="CardLast_Group">
@@ -53,7 +60,14 @@ function Exam() {
       <MenuHeaderMain />
 
       <div className='position-button-new'>
-      <a href='/exam/new' className='btn btn-primary bottom'><h1> + </h1></a>
+        <Link 
+          to="/exam/new"
+          className="btn btn-primary bottom rounded-circle"
+        >
+          <h1>{" "}
+          <FaPlus />{" "}
+          </h1>
+        </Link>
       </div>
 
       <div className="CardLast_Group">

@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-
 import CardGlobal from "../_components/CardGlobal";
 import { useEffect, useState } from "react";
 import treatmentService from "../../services/treatment";
@@ -73,9 +72,9 @@ const TreatmentsScreen = () => {
         hasMore={true}
         loader={<h4 className="text-center text-white">Buscando...</h4>}
       >
-        <div className="row m-1 justify-content-center">
+        <div className="CardLast_Group">
           {treatments.map((treatment, index) => (
-            <div className="col-xs-12 col-md-4">
+            <div className="">
               <CardGlobal
                 title={treatment.title}
                 exam_location={treatment.treatment_location}
@@ -105,10 +104,10 @@ const TreatmentsScreen = () => {
         </Link>
       </div>
 
-      <div className="row m-1 justify-content-center">
-        <div className="col-xs-2 col-md-4 col-lg-4">
+      <div className=" ">
+        <div className="CardLast_Group">
           <div className="cardLast">
-            <div className="cardLast__title text-center">Tratamentos</div>
+            <div className="cardLast__title text-center">TRATAMENTOS</div>
             <div className="d-flex px-2 gap-1 justify-content-center mb-2">
               <div>
                 <input
