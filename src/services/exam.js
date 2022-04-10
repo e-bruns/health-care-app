@@ -14,7 +14,7 @@ function createFormData(examsDto) {
   const formData = new FormData();
   formData.append("exam[title]", examsDto.title);
   formData.append("exam[date]", examsDto.date);
-  formData.append("exam[exam_location]", examsDto.date);
+  formData.append("exam[exam_location]", examsDto.exam_location);
   for (let i = 0; i < examsDto.files.length; i++) {
     formData.append("exam[files][]", examsDto.files[i]);
   }
