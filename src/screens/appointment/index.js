@@ -1,109 +1,59 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
 import MenuHeaderMain from "../_components/MenuHeaderMain";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { FaPlus } from "react-icons/fa";
-import CardGlobal from '../_components/CardGlobal';
+import { Row, Col, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import CardGlobal from "../_components/CardGlobal";
+import instance from "../../axios";
 
 import appointmentsService from "../../services/appointment";
 import { toast } from "react-toastify";
+import InfinityList from "../_components/InfinityList";
+import { Link } from "react-router-dom";
+import { FaPlus } from "react-icons/fa";
+import CardSearch from "../_components/CardSearch";
 
 function Appointments() {
+  const [search, setSearch] = useState('');
 
-  const [appointments, setAppointment] = useState([]);
-  const [page, setPage] = useState(1);
-
-  useEffect(() => {
-    fetchAppointment();
-  }, []);
-
-  const fetchAppointment = async () => {
-    try {
-      const data = await appointmentsService.index({ page, search: "" });
-      if (data && data.length > 0) {
-        if (page === 1) {
-          setAppointment(data);
-        } else {
-          console.log(appointments, data);
-          setAppointment(appointments.concat(data));
-        }
-      }
-    } catch (error) {
-      toast.error('Falha ao carregar tratamentos');
-    } finally {
-      setPage(page + 1);
-    }
-  };
-
-  if (appointments.length === 0) {
-    return (
-      <>
+  return (
+    <>
       <MenuHeaderMain />
 
-      <div className='position-button-new'>
-        <Link 
-          to="/appointment/new"
-          className="btn btn-primary bottom rounded-circle"
-        >
-          <h1>{" "}
-          <FaPlus />{" "}
+      <div className="position-button-new">
+        <Link to="/appointment/new" className="btn btn-primary bottom rounded-circle">
+          <h1>
+            <FaPlus />
           </h1>
         </Link>
       </div>
 
-      <div className="CardLast_Group">
-        <div className='cardLast'>
-          <div className='cardLast__title text-center'>CONSULTAS</div>
-          <div className='cardLast__block_line '>
-            <p className="text-center">NENHUMA CONSULTA CADASTRADA! <br />
-            Clique em " + " para adicionar</p>
-          </div>
-        </div>
-      </div>
-      </>
-    )
-  } else {
-    return (
-      <>
-        <MenuHeaderMain />
+      <Row className="justify-content-center">
+        <Col md={6} xs={12} lg={6}>
+          <CardSearch
+            title={"CONSULTAS"}
+            onSearch={(value) => {
+              setSearch(value);
+            }}
+          />
+        </Col>
+      </Row>
 
-        <div className='position-button-new'>
-          <Link 
-            to="/appointment/new"
-            className="btn btn-primary bottom rounded-circle"
-          >
-            <h1>{" "}
-            <FaPlus />{" "}
-            </h1>
-          </Link>
-        </div>
-
-        <div className="CardLast_Group">
-          <div className='cardLast'>
-            <div className='cardLast__title text-center'>CONSULTAS</div>
-            <div className='cardLast__block_line'>
-              <div >
-                <input type="text" className="form-control" placeholder="PESQUISAR" />
-              </div>
-              <div className='cardLast__button'>
-                <FontAwesomeIcon icon={faMagnifyingGlass} className="text-white" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="CardLast_Group">
-
-          {appointments.map((appointment) =>
-            <CardGlobal title={appointment.title} exam_location={appointment.professional_name} date={appointment.date} link={'/appointment/' + appointment.id + '/detail'} key={appointment.id}></CardGlobal>
-          )
-          }
-
-        </div>
-      </>
-    );
-  }
+      <InfinityList
+        fetchService={appointmentsService}
+        search={search}
+        renderResource={(appointment, index) => (
+          <CardGlobal
+            title={appointment.title}
+            location={appointment.appointment_location}
+            date={appointment.date}
+            link={"/appointment/" + appointment.id + "/detail"}
+            key={appointment.id}
+          ></CardGlobal>
+        )}
+      />
+    </>
+  );
 }
 
 export default Appointments;

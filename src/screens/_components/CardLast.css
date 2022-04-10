@@ -1,11 +1,9 @@
 .cardLast {
   background-color: white;
   border-radius: 5px;
-  margin: 20px;
+  margin: 5px;
   box-shadow: 2px 2px 10px #00000040;
   padding-bottom: 6px;
-  min-width: 380px;
-  max-width: 80vw;
 }
 
 .cardLast__title {
@@ -67,9 +65,9 @@
   .cardLast {
     background-color: white;
     border-radius: 5px;
-    margin: 20px;
+    margin: 5px;
     box-shadow: 2px 2px 10px #00000040;
-    padding-bottom: 6px;
+    padding-bottom: 4px;
     min-width: 150px;
   }
 

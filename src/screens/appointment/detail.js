@@ -50,7 +50,7 @@ function AppointmentsDetailScreen() {
     <>
       <MenuHeaderMain />
 
-      <div className="CardLast_Single">
+      <div className="CardLast_Single p-2">
         <div className="cardLast">
           <div className="cardLast__title text-center">{appointment.title}</div>
           <div className="">
@@ -76,16 +76,16 @@ function AppointmentsDetailScreen() {
             paddingInline: "20px",
           }}
         >
-          <div className="mb-2">
+          <div className="mb-2 my-4">
             <Row>
-              <Col>
-                <div className="d-grid gap-2">
+              <Col xs={4}>
+                <div className="d-grid">
                   <Link to="/appointment" className="btn btn-secondary">
-                    Voltar
+                     Voltar
                   </Link>
                 </div>
               </Col>
-              <Col>
+              <Col xs={4}>
                 <ModalGlobal
                   show={showModal}
                   fnc={() => {
