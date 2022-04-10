@@ -53,7 +53,7 @@ const InfinityList = ({ fetchService, renderResource, search }) => {
     >
       <Row className="justify-content-center m-1">
         {resources.map((resource, index) => (
-          <Col md={4} xs={12}>
+          <Col md={4} xs={12} key={index}>
             {renderResource(resource)}
           </Col>
         ))}

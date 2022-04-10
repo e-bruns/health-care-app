@@ -84,6 +84,7 @@ function ExamDetail() {
             exam.files.map((file, index) => {
               return (
                 <div
+                  key={index}
                   className="cardLast__block_line"
                   style={{
                     justifyContent: "start",

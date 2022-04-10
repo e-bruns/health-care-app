@@ -29,7 +29,7 @@ function ExamFormScreen() {
         const result = await examService.show(params.id);
         if (result) {
           const dateFormatted = result.date.split("/").reverse().join("-");
-          setInitialsValues({ ...result, date: dateFormatted });
+          setInitialsValues({ ...result, date: dateFormatted, files: [] });
         }
       }
     })();
@@ -38,6 +38,7 @@ function ExamFormScreen() {
   async function handleRegister(values, { setSubmitting }) {
     try {
       if (params.id) {
+        console.log(values)
         await examService.update(params.id, { ...values });
         toast.success("Exame atualizado com sucesso!!");
       } else {
