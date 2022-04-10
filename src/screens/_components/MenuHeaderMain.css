@@ -152,3 +152,27 @@
   z-index: -3;
   margin: auto;
 }
+
+@media (min-width: 400px) and (max-width: 559.98px) { 
+  .MenuHeaderMain:after {
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  .MenuHeaderMain:before {
+    background-position: 50% -50px;
+  }
+
+}
+
+@media (min-width: 180px) and (max-width: 399.98px) { 
+  .MenuHeaderMain:after {
+    font-size: 30px;
+    margin-left: 50px;
+  }
+
+  .MenuHeaderMain:before {
+    background-position: 50% -2px;
+  }
+
+}

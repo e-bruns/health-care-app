@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperclip, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import "../home/index.css";
 import ModalGlobal from "./../_components/ModalGlobal";
-import { useParams, Navigate, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import instance from "../../axios";
 import fileApiService from "../../services/file";
 import { toast } from "react-toastify";
@@ -115,6 +115,12 @@ function ExamDetail() {
           className="cardLast__block_line_no_background"
           style={{ justifyContent: "center", width: "100%" }}
         >
+          <a
+            onClick={() => navigate("/exam/")}
+            className="btn btn-secondary m-3"
+          >
+            VOLTAR
+          </a>
           <ModalGlobal
             title="Deseja excluir exame?"
             fnc={() => {
