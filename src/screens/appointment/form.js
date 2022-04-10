@@ -3,14 +3,12 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { toast } from "react-toastify";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import authService from "../../services/auth";
+import { Col, Row } from "react-bootstrap";
+
 import MenuHeaderMain from "../_components/MenuHeaderMain";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFile, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import "../home/index.css";
 import appointmentsService from "../../services/appointment";
 import CardTitle from "../_components/CardTitle";
-import { Col, Row } from "react-bootstrap";
 
 function AppointmentFormScreen() {
   const [initialValues, setInitialsValues] = useState({
