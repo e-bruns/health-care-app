@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperclip, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import "../home/index.css";
 import ModalGlobal from "./../_components/ModalGlobal";
-import { useParams, Navigate, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import instance from "../../axios";
 import fileApiService from "../../services/file";
 import { toast } from "react-toastify";
@@ -60,7 +60,7 @@ function ExamDetail() {
     <>
       <MenuHeaderMain />
 
-      <div className="CardLast_Single">
+      <div className="CardLast_Single p-2">
         <div className="cardLast">
           <div className="cardLast__title text-center">{exam.title}</div>
           <div className="cardLast__block_line_no_background">
@@ -78,7 +78,7 @@ function ExamDetail() {
             </div>
           </div>
         </div>
-        <div className="cardLast">
+        <div className="cardLast p-2">
           <div className="cardLast__title2 text-center">ANEXOS</div>
           {exam.files &&
             exam.files.map((file, index) => {
@@ -115,7 +115,12 @@ function ExamDetail() {
           className="cardLast__block_line_no_background"
           style={{ justifyContent: "center", width: "100%" }}
         >
-          <a href="/exam" className="btn btn-secondary m-3">VOLTAR</a>
+          <a
+            onClick={() => navigate("/exam/")}
+            className="btn btn-secondary m-3"
+          >
+            VOLTAR
+          </a>
           <ModalGlobal
             title="Deseja excluir exame?"
             fnc={() => {

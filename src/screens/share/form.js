@@ -1,16 +1,15 @@
-import { Formik } from "formik";
+import { useEffect, useState } from "react";
+import { isAfter, parse } from "date-fns";
+import { Link, useNavigate } from "react-router-dom";
 import { Col, Row } from "react-bootstrap";
+import { toast } from "react-toastify";
+
 import MenuHeaderMain from "../_components/MenuHeaderMain";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
-import { useEffect, useState } from "react";
 import userShareService from "../../services/userShare";
 import userService from "../../services/user";
-import { Link, useNavigate } from "react-router-dom";
-import { isAfter, parse, toDate} from 'date-fns'
-
 
 import "./share.css";
-import { toast } from "react-toastify";
 
 const FormShareScreen = () => {
   const [users, setUsers] = useState();
@@ -22,8 +21,8 @@ const FormShareScreen = () => {
   const [errors, setErrors] = useState({
     endDate: null,
   });
-  const [q, setQ] = useState('');
-  const navigate = useNavigate()
+  const [q, setQ] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchUsers();
@@ -34,19 +33,44 @@ const FormShareScreen = () => {
     setUsers(data);
   }
 
-  const handleShare = (e) => {
+  const handleShare = async (e) => {
+    if (!userSelected) {
+      toast.error(
+        "Selecione um usuário!"
+      );
+      return;
+    }
+
+    if ([appointment, exam, treatment].every((el) => el === false)) {
+      toast.error(
+        "Você deve selecionar pelo menos um item para o compartilhamento."
+      );
+      return;
+    }
+
+    if (!endDate) {
+      toast.error("A Date de Final do compartilhamento não pode ser vazio!");
+      return;
+    }
+
     try {
-      userShareService.create({
+      await userShareService.create({
         user_share_id: userSelected?.id,
         medical_appointment: appointment,
         exam,
         treatment,
-        end_date: endDate
+        end_date: endDate,
       });
-      toast.success('Compartilhamento realizado com sucesso!!')
-      navigate('/share')
+      toast.success("Compartilhamento realizado com sucesso!!");
+      navigate("/share");
     } catch (error) {
-      toast.error("Falha ao criar compartilhamento");
+      if (error.response.data.errors) {
+        Object.values(error.response.data.errors)[0].forEach((message) => {
+          toast.error(message);
+        });
+      } else {
+        toast.error("Falha ao criar compatilhamento! Tente novamente!");
+      }
     }
   };
 
@@ -66,7 +90,7 @@ const FormShareScreen = () => {
             <ReactSearchAutocomplete
               items={users}
               onSearch={(value) => {
-                setQ(value)
+                setQ(value);
               }}
               styling={{
                 height: "44px",
@@ -90,7 +114,9 @@ const FormShareScreen = () => {
               }}
               onFocus={() => {}}
               autoFocus
-              formatResult={(item) => <div className="text-primary">{item.name}</div>}
+              formatResult={(item) => (
+                <div className="text-primary">{item.name}</div>
+              )}
             />
           </Col>
         </Row>
@@ -98,32 +124,34 @@ const FormShareScreen = () => {
         <Row className="px-2 justify-content-center">
           <Col md={6}>
             <div className="form-group">
-            <label className="form-labe text-white">Data Final do Compartilhamento</label>
-            <input
-              type="date"
-              onChange={(e) => {
-                let edt = e.target.value;
-                edt = parse(edt, 'yyyy-MM-dd', new Date());
-                if (isAfter(new Date(), edt)){
-                  setErrors({
-                    endDate: "Data inválida",
-                  });
-                  return;
-                }
-                setErrors({ endDate: null });
-                setEndDate(edt);
-              }}
-              disabled={!userSelected}
-              className="form-control"
-            />
-            {errors && <label className="text-danger">{errors.endDate}</label>}
+              <label className="form-labe text-white">
+                Data Final do Compartilhamento
+              </label>
+              <input
+                type="date"
+                onChange={(e) => {
+                  let edt = e.target.value;
+                  edt = parse(edt, "yyyy-MM-dd", new Date());
+                  if (isAfter(new Date(), edt)) {
+                    setErrors({
+                      endDate: "Data inválida!",
+                    });
+                    return;
+                  }
+                  setErrors({ endDate: null });
+                  setEndDate(edt);
+                }}
+                disabled={!userSelected}
+                className="form-control"
+              />
+              {errors && (
+                <label className="text-danger">{errors.endDate}</label>
+              )}
             </div>
           </Col>
         </Row>
 
-
         <Row className="px-2 mt-2 m-2 justify-content-center">
-
           <Col className="CardShare--box" md={6}>
             <Row className="justify-content-between p-2 bg-white">
               <Col xs={1}>
@@ -173,7 +201,11 @@ const FormShareScreen = () => {
               <Link to={"/share"} className="btn btn-secondary">
                 Voltar
               </Link>
-              <button className="btn btn-primary" onClick={handleShare} disabled={errors.endDate}>
+              <button
+                className="btn btn-primary"
+                onClick={handleShare}
+                disabled={errors.endDate}
+              >
                 COMPARTILHAR
               </button>
             </div>

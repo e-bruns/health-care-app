@@ -177,7 +177,7 @@ function Register() {
                     <div className="form-group mt-3 text-start">
                       <label htmlFor="email">Senha</label>
                       <input
-                        type="text"
+                        type="password"
                         className="form-control"
                         placeholder="DIGITE SUA SENHA"
                         id="password"
