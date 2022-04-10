@@ -22,7 +22,7 @@ function HomeScreen() {
   return (
     <div>
       <MenuHeaderMain />
-      <div className="CardLast_Group">
+      <div className="CardLast_Group p-3">
         <CardLast title="Últimas consultas" lasts={medical_appointments} url="appointment" />
         <CardLast title="Últimos exames" lasts={exams} url="exam" />
         <CardLast title="Últimos tratamentos" lasts={treatments} url="treatment" />
