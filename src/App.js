@@ -23,6 +23,9 @@ import AppointmentFormScreen from "./screens/appointment/form";
 import AppointmentsDetailScreen from "./screens/appointment/detail";
 import ShareScreen from "./screens/share";
 import FormShareScreen from "./screens/share/form";
+import SharedExams from "./screens/share/sharedExams";
+import SharedAppointments from "./screens/share/sharedAppointments";
+import SharedTreatments from "./screens/share/sharedTreatments";
 
 const AuthenticatedRoute = ({ children }) => {
   const { user } = useSelector((state) => state.user);
@@ -154,9 +157,46 @@ function App() {
             }
           ></Route>
 
-          <Route path="/share" element={<ShareScreen />}></Route>
 
-          <Route path="/share/new" element={<FormShareScreen />}></Route>
+          <Route path="/share" element={
+            <AuthenticatedRoute>
+              <ShareScreen />
+            </AuthenticatedRoute>
+          }></Route>
+
+          <Route path="/share/new" element={
+            <AuthenticatedRoute>
+              <FormShareScreen />
+            </AuthenticatedRoute>
+          }></Route>
+
+          //rotas dos compartilhamentos
+          <Route
+            path="/share/:id/exams"
+            element={
+              <AuthenticatedRoute>
+                <SharedExams />
+              </AuthenticatedRoute>
+            }
+          ></Route>
+
+          <Route
+            path="/share/:id/appointments"
+            element={
+              <AuthenticatedRoute>
+                <SharedAppointments />
+              </AuthenticatedRoute>
+            }
+          ></Route>
+
+          <Route
+            path="/share/:id/treatments"
+            element={
+              <AuthenticatedRoute>
+                <SharedTreatments />
+              </AuthenticatedRoute>
+            }
+          ></Route>
 
           <Route path="*" element={<LoginScreen />} />
         </Routes>

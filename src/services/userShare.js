@@ -1,7 +1,7 @@
 import instance from "../axios";
 
 const create = (userShareDto) => {
-  return instance.post('api/v1/user_shares', userShareDto).then(response => response.dta)
+  return instance.post('api/v1/user_shares', userShareDto).then(response => response.dta);
 };
 
 const index = ({ page, q }) => {
@@ -14,7 +14,7 @@ const index = ({ page, q }) => {
     .then((response) => response.data);
 };
 
-
+// isso é um teste
 const userShareService = {
   create,
   index

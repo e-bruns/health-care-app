@@ -2,26 +2,27 @@ import { useEffect, useState, useRef } from "react";
 import { Col, Row } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { toast } from "react-toastify";
-import CardShare from "./cardShare";
+import CardMyShare from "./cardMyShare";
+import CardOtherShare from "./cardOtherShare";
 
-const ShareList = ({ fetchService, tab }) => {
+const ShareList = ({ fetchService, tab, typeShare }) => {
   const [shares, setShares] = useState([]);
-  const pageRef = useRef(1)
+  const pageRef = useRef(1);
   const [q, setQ] = useState();
   const [lastFetched, setLastFeteched] = useState([]);
 
   useEffect(() => {
-    console.log(tab)
-    setShares([])
-    pageRef.current = 1; 
-  }, [tab])
+    console.log(tab);
+    setShares([]);
+    pageRef.current = 1;
+  }, [tab]);
 
   useEffect(() => {
     fetchShares();
   }, [fetchService]);
 
   const fetchShares = async (searched = false) => {
-    let pg =  pageRef.current;
+    let pg = pageRef.current;
     if (searched === true) {
       pg = 1;
     }
@@ -35,10 +36,12 @@ const ShareList = ({ fetchService, tab }) => {
           setShares(shares.concat(data));
         }
         pageRef.current = pg + 1;
+        console.log(data);
       }
     } catch (error) {
       toast.error("Falha ao carregar tratamentos");
     } finally {
+
     }
   };
 
@@ -53,9 +56,15 @@ const ShareList = ({ fetchService, tab }) => {
             loader={lastFetched.length === 0 ? "" : "Carregando.."}
           >
             <div className="p-2 flex-column gap-2 d-flex">
-              {shares.map((share, index) => (
-                <CardShare key={index} share={share} />
+
+              {typeShare == 1 && shares.map((share, index) => (
+                <CardMyShare key={index} share={share} />
               ))}
+
+              {typeShare == 2 && shares.map((share, index) => (
+                <CardOtherShare key={index} share={share} />
+              ))}
+
             </div>
           </InfiniteScroll>
         </div>
