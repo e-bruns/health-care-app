@@ -87,7 +87,7 @@ function ResetScreen() {
                 <form onSubmit={handleSubmit}>
                   <div className="form-size text-white">
                     <div className="form-group mt-3 text-start">
-                      <label htmlfor="email">INFORME SEU E-MAIL</label>
+                      <label htmlFor="email">INFORME SEU E-MAIL</label>
                       <input
                         type="email"
                         className="form-control"
@@ -105,7 +105,7 @@ function ResetScreen() {
                       )}
                     </div>
                     <div className="form-group mt-3 text-start">
-                      <label htmlfor="token">TOKEN</label>
+                      <label htmlFor="token">TOKEN</label>
                       <input
                         type="text"
                         className="form-control"
@@ -124,7 +124,7 @@ function ResetScreen() {
                     </div>
 
                     <div className="form-group mt-3 text-start">
-                      <label htmlfor="token">Nova Senha</label>
+                      <label htmlFor="token">Nova Senha</label>
                       <input
                         type="text"
                         className="form-control"

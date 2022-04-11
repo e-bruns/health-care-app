@@ -1,9 +1,9 @@
 import instance from "../axios";
 
-const index = ({ page, search }) => {
+const index = ({ page, q }) => {
   const params = new URLSearchParams({
     page,
-    search,
+    q,
   });
   return instance
     .get("api/v1/exams?" + params)
@@ -14,13 +14,12 @@ function createFormData(examsDto) {
   const formData = new FormData();
   formData.append("exam[title]", examsDto.title);
   formData.append("exam[date]", examsDto.date);
-  formData.append("exam[exam_location]", examsDto.date);
+  formData.append("exam[exam_location]", examsDto.exam_location);
   for (let i = 0; i < examsDto.files.length; i++) {
     formData.append("exam[files][]", examsDto.files[i]);
   }
   return formData;
 }
-
 
 const create = (examsDto) => {
    return instance
@@ -33,7 +32,6 @@ const create = (examsDto) => {
 };
 
 const update = (id, examsDto) => {
-  console.log(examsDto);
   return instance
     .put("api/v1/exams/" + id, createFormData(examsDto))
     .then((response) => response.data);

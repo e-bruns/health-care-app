@@ -44,7 +44,7 @@ const FileUpload = ({ onUpdate }) => {
         {files.length > 0 &&
           Array.from(files).map((f, index) => {
             return (
-              <Col>
+              <Col key={index}>
                 <Row
                   key={index}
                   className="align-items-center text-white text-dark p-2 my-2 justify-content-center border-bottom border-1"

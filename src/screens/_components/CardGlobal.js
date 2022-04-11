@@ -11,7 +11,7 @@ function CardGlobal(props) {
     <div className='cardLast__title'>{props.title}</div>
     <div className='cardLast__block'></div>
     <div className='cardLast__block_line'>
-      <div>{props.exam_location}</div>
+      <div>{props.location}</div>
       <div>{props.date}</div>
     </div>
 

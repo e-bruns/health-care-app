@@ -1,9 +1,9 @@
 import instance from "../axios";
 
-const index = ({ page, search }) => {
+const index = ({ page, q }) => {
   const params = new URLSearchParams({
     page,
-    search,
+    q,
   });
   return instance
     .get("api/v1/medical_appointments?" + params)
