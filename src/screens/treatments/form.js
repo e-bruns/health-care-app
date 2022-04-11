@@ -127,6 +127,7 @@ function TreatmentFormScreen() {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         name="kind"
+                        value={values.kind}
                       >
                         <option value="remedio">Remédio</option>
                         <option value="fisioterapia">Fisioterapia</option>
