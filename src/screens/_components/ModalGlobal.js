@@ -23,7 +23,12 @@ function ModalGlobal(props) {
         <Modal.Header closeButton>
           <Modal.Title>{props.title}</Modal.Title>
         </Modal.Header>
-        <Modal.Footer>
+        <Modal.Footer style={
+          {
+            display: 'flex',
+            justifyContent: 'center'
+          }
+        }>
           <Button variant="primary" onClick={() => setShow(false)}>
             Não
           </Button>

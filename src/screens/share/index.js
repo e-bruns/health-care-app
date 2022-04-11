@@ -3,7 +3,7 @@ import { FaPlus } from "react-icons/fa";
 import sharedWithMeService from "../../services/sharedMe";
 import userShareService from "../../services/userShare";
 import MenuHeaderMain from "../_components/MenuHeaderMain";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 import "./share.css";
 import ShareList from "./shareList";
@@ -39,9 +39,9 @@ const ShareScreen = () => {
 
   const renderList = () => {
     if (tab === 1) {
-      return <ShareList fetchService={userShareService} tab={tab} />;
+      return <ShareList fetchService={userShareService} tab={tab} typeShare={1} />;
     } else {
-      return <ShareList fetchService={sharedWithMeService} tab={tab} />;
+      return <ShareList fetchService={sharedWithMeService} tab={tab} typeShare={2} />;
     }
   };
 
