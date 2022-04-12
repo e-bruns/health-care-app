@@ -1,11 +1,14 @@
 .MenuHeaderMain {
-  height: 120px;
   background-color: white;
   overflow: hidden;
   position: relative;
+  height: 50px;
+  width: 100%;
+ /* border-bottom: 3px solid #0a6eb7; */
+  box-shadow: 2px 2px 10px #00000040;
 }
 
-.MenuHeaderMain:before {
+/* .MenuHeaderMain:before {
   content: '';
   display: block;
   position: absolute;
@@ -19,22 +22,23 @@
   background-repeat: no-repeat;
   background-position: 50% -118px;
   background-size: cover;
-}
+} */
 
 .MenuHeaderMain__button {
-  height: 50px;
-  width: 60px;
+  height: 36px;
+  width: 38px;
   background-color: var(--color-blue-dark-primary);
   display: flex;
   position: absolute;
-  left: 35px;
-  top: 35px;
+  left: 8px;
+  top: 6px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding: 8px;
+  padding: 4px;
   z-index: 1;
+  border-radius: 4px;
 }
 
 .MenuHeaderMain__button:hover {
@@ -43,7 +47,7 @@
 
 .MenuHeaderMain__button>div {
   height: 4px;
-  width: 40px;
+  width: 30px;
   background-color: white;
   border-radius: 7px;
 }
