@@ -65,9 +65,9 @@ const CardMyShare = ({ share }) => {
             //function aqui
           }}
         >
-          <div className="d-grid gap-2">
+          <div className="d-grid gap-2 mt-2">
 
-            <Button variant="danger" size="lg">
+            <Button variant="outline-danger" outline={true} size="md">
               Interromper
             </Button>
 

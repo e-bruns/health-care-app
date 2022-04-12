@@ -53,7 +53,7 @@ const ShareList = ({ fetchService, tab, typeShare }) => {
             dataLength={shares.length}
             next={fetchShares}
             hasMore={true}
-            loader={lastFetched.length === 0 ? "" : "Carregando.."}
+            loader={""}
           >
             <div className="p-2 flex-column gap-2 d-flex">
 
