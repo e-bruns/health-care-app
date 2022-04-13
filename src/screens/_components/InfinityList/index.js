@@ -3,7 +3,7 @@ import { Col, Row } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { toast } from "react-toastify";
 
-const InfinityList = ({ fetchService, renderResource, search }) => {
+const InfinityList = ({ fetchService, renderResource, search, parameter }) => {
   const [resources, setResource] = useState([]);
   const pageRef = useRef(1);
   const [q, setQ] = useState(search);
@@ -26,7 +26,7 @@ const InfinityList = ({ fetchService, renderResource, search }) => {
       pg = 1;
     }
     try {
-      const data = await fetchService.index({ page: pg, q: search });
+      const data = await fetchService.index({ page: pg, q: search, parameter });
       setLastFetched(data);
       if (data && data.length > 0) {
         if (pg === 1) {
@@ -37,7 +37,7 @@ const InfinityList = ({ fetchService, renderResource, search }) => {
         pageRef.current = pg + 1;
       }
     } catch (error) {
-      toast.error("Falha ao carregar tratamentos");
+      toast.error("Falha ao carregar recurso");
     } finally {
     }
   };
@@ -51,7 +51,7 @@ const InfinityList = ({ fetchService, renderResource, search }) => {
         lastFetched.length === 0 || pageRef.current === 1 ? "" : ""
       }
     >
-      <Row className="justify-content-center m-1">
+      <Row className="m-1">
         {resources.map((resource, index) => (
           <Col md={4} xs={12} key={index}>
             {renderResource(resource)}

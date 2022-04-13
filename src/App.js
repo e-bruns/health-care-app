@@ -26,6 +26,9 @@ import FormShareScreen from "./screens/share/form";
 import SharedExams from "./screens/share/sharedExams";
 import SharedAppointments from "./screens/share/sharedAppointments";
 import SharedTreatments from "./screens/share/sharedTreatments";
+import ExamSharedDetail from "./screens/share/details/exam_detail";
+import TreatmentSharedDetail from "./screens/share/details/treatment_detail";
+import AppointmentSharedDetail from "./screens/share/details/appointment_detail";
 
 const AuthenticatedRoute = ({ children }) => {
   const { user } = useSelector((state) => state.user);
@@ -84,7 +87,6 @@ function App() {
               </AuthenticatedRoute>
             }
           />
-
           <Route
             path="/treatment"
             element={
@@ -93,7 +95,6 @@ function App() {
               </AuthenticatedRoute>
             }
           ></Route>
-
           <Route
             path="/treatment/new"
             element={
@@ -102,7 +103,6 @@ function App() {
               </AuthenticatedRoute>
             }
           ></Route>
-
           <Route
             path="/treatment/:id/detail"
             element={
@@ -111,7 +111,6 @@ function App() {
               </AuthenticatedRoute>
             }
           ></Route>
-
           <Route
             path="/treatment/:id/edit"
             element={
@@ -120,7 +119,6 @@ function App() {
               </AuthenticatedRoute>
             }
           ></Route>
-
           <Route
             path="/appointment"
             element={
@@ -129,7 +127,6 @@ function App() {
               </AuthenticatedRoute>
             }
           ></Route>
-
           <Route
             path="/appointment/new"
             element={
@@ -138,7 +135,6 @@ function App() {
               </AuthenticatedRoute>
             }
           ></Route>
-
           <Route
             path="/appointment/:id/detail"
             element={
@@ -147,7 +143,6 @@ function App() {
               </AuthenticatedRoute>
             }
           ></Route>
-
           <Route
             path="/appointment/:id/edit"
             element={
@@ -156,20 +151,22 @@ function App() {
               </AuthenticatedRoute>
             }
           ></Route>
-
-
-          <Route path="/share" element={
-            <AuthenticatedRoute>
-              <ShareScreen />
-            </AuthenticatedRoute>
-          }></Route>
-
-          <Route path="/share/new" element={
-            <AuthenticatedRoute>
-              <FormShareScreen />
-            </AuthenticatedRoute>
-          }></Route>
-
+          <Route
+            path="/share"
+            element={
+              <AuthenticatedRoute>
+                <ShareScreen />
+              </AuthenticatedRoute>
+            }
+          ></Route>
+          <Route
+            path="/share/new"
+            element={
+              <AuthenticatedRoute>
+                <FormShareScreen />
+              </AuthenticatedRoute>
+            }
+          ></Route>
           //rotas dos compartilhamentos
           <Route
             path="/share/:id/exams"
@@ -179,7 +176,14 @@ function App() {
               </AuthenticatedRoute>
             }
           ></Route>
-
+          <Route
+            path="/share/:id/exams/:examId"
+            element={
+              <AuthenticatedRoute>
+                <ExamSharedDetail />
+              </AuthenticatedRoute>
+            }
+          ></Route>
           <Route
             path="/share/:id/appointments"
             element={
@@ -188,7 +192,14 @@ function App() {
               </AuthenticatedRoute>
             }
           ></Route>
-
+          <Route
+            path="/share/:id/appointments/:appointmentId"
+            element={
+              <AuthenticatedRoute>
+                <AppointmentSharedDetail />
+              </AuthenticatedRoute>
+            }
+          ></Route>
           <Route
             path="/share/:id/treatments"
             element={
@@ -197,7 +208,14 @@ function App() {
               </AuthenticatedRoute>
             }
           ></Route>
-
+          <Route
+            path="/share/:id/treatments/:treatmentId"
+            element={
+              <AuthenticatedRoute>
+                <TreatmentSharedDetail />
+              </AuthenticatedRoute>
+            }
+          ></Route>
           <Route path="*" element={<LoginScreen />} />
         </Routes>
       </Router>
