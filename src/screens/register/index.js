@@ -16,7 +16,7 @@ function Register() {
 
   async function handleRegister(values, { setSubmitting }) {
     try {
-      await authService.register({ ...values });
+      await authService.register({ ...values, kind: parseInt(values.kind) });
       toast.success("Cadastro realizado com sucesso!!");
       navigate("/home");
     } catch (error) {

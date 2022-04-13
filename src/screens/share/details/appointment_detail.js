@@ -76,8 +76,7 @@ function AppointmentSharedDetail() {
                      Voltar
                   </Link>
                 </div>
-              </Col>
-           
+              </Col>           
             </Row>
           </div>
         </div>
