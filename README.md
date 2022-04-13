@@ -4,7 +4,8 @@ This project is the result of the second Hackathon of Rails Bootcamp prometed by
 # Project Heath History
 The project was built following the business rules from the Hackathon challenge.
 
-![heath-history](https://i.ibb.co/HPpT3fW/Heath.gif)
+- View App
+<a href="https://drive.google.com/file/d/10Laq5pNiK_f90q6qm15FDwCM_mFp33FJ/view" target="_blank">Acessar Link</a>
 
 ## Technology Stack
 
