@@ -5,7 +5,7 @@ This project is the result of the second Hackathon of Rails Bootcamp prometed by
 The project was built following the business rules from the Hackathon challenge.
 
 - View App
-<a href="https://drive.google.com/file/d/10Laq5pNiK_f90q6qm15FDwCM_mFp33FJ/view" target="_blank">Acessar Link</a>
+<a href="https://drive.google.com/file/d/10Laq5pNiK_f90q6qm15FDwCM_mFp33FJ/view" target="_blank">Acessar Video</a>
 
 ## Technology Stack
 
