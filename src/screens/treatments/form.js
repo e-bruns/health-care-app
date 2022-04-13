@@ -127,6 +127,7 @@ function TreatmentFormScreen() {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         name="kind"
+                        value={values.kind}
                       >
                         <option value="remedio">Remédio</option>
                         <option value="fisioterapia">Fisioterapia</option>
@@ -155,7 +156,7 @@ function TreatmentFormScreen() {
                       <input
                         type="date"
                         className="form-control"
-                        placeholder="DATA DO EXAME"
+                        placeholder="DATA DO TRATAMENTO"
                         name="date"
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -174,7 +175,7 @@ function TreatmentFormScreen() {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder="DIGITE O LOCAL DO EXAME"
+                        placeholder="DIGITE O LOCAL DO TRATAMENTO"
                         name="treatment_location"
                         onChange={handleChange}
                         onBlur={handleBlur}

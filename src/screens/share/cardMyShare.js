@@ -1,6 +1,7 @@
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Button, Modal } from "react-bootstrap";
+import ModalGlobal from "../_components/ModalGlobal";
 
-const CardShare = ({ share }) => {
+const CardMyShare = ({ share }) => {
   return (
     <div className="CardShare p-2">
       <Row className="CardShare--header justify-content-between">
@@ -56,8 +57,25 @@ const CardShare = ({ share }) => {
           </Row>
         </Col>
       </Row>
+
+      <Col>
+        <ModalGlobal
+          title="Deseja interromper o compartilhamento?"
+          fnc={() => {
+            //function aqui
+          }}
+        >
+          <div className="d-grid gap-2 mt-2">
+
+            <Button variant="outline-danger" outline={true} size="md">
+              Interromper
+            </Button>
+
+          </div>
+        </ModalGlobal>
+      </Col>
     </div>
   );
 };
 
-export default CardShare;
+export default CardMyShare;

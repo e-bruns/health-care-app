@@ -1,7 +1,7 @@
-# About Hackathon - Heath Care
+# About Hackathon - Health Care
 This project is the result of the second Hackathon of Rails Bootcamp prometed by OneBiteCode. The project proposal is a medical consultation history system.
 
-# Project Heath History
+# Project Health History
 The project was built following the business rules from the Hackathon challenge.
 
 - View App
