@@ -32,6 +32,7 @@ import AppointmentSharedDetail from "./screens/share/details/appointment_detail"
 
 const AuthenticatedRoute = ({ children }) => {
   const { user } = useSelector((state) => state.user);
+  console.warn(user);
   if (!user) {
     return <Navigate to="/" replace />;
   }

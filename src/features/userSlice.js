@@ -9,7 +9,7 @@ const sessionUser = Cookies.get('@session-user')
 if (sessionUser) {
   initialState = {
     logged: true,
-    user: JSON.stringify(sessionUser)
+    user: JSON.parse(sessionUser)
   }
 }
 
