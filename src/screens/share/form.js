@@ -95,7 +95,7 @@ const FormShareScreen = () => {
               styling={{
                 height: "44px",
                 border: "1px solid #dfe1e5",
-                borderRadius: "0px",
+                borderRadius: "4px",
                 backgroundColor: "white",
                 boxShadow: "rgba(32, 33, 36, 0.28) 0px 1px 6px 0px",
                 hoverBackgroundColor: "#eee",
@@ -151,7 +151,7 @@ const FormShareScreen = () => {
           </Col>
         </Row>
 
-        <Row className="px-2 mt-2 m-2 justify-content-center">
+        <Row className="px-1 mt-2 m-1 justify-content-center">
           <Col className="CardShare--box" md={6}>
             <Row className="justify-content-between p-2 bg-white">
               <Col xs={1}>
@@ -196,7 +196,7 @@ const FormShareScreen = () => {
         </Row>
 
         <Row className="justify-content-center mt-3">
-          <Col md={6}>
+          <Col xs={6} md={6}>
             <div className="d-flex gap-2">
               <Link to={"/share"} className="btn btn-secondary">
                 Voltar

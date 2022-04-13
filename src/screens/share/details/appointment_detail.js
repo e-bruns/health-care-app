@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Col, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperclip, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
-
+import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
+
 
 import MenuHeaderMain from "../../_components/MenuHeaderMain";
 import "../../home/index.css";
 import appointmentShareService from "../../../services/appointmentShare";
+import SubHeader from "../subNav";
+
 
 <FontAwesomeIcon icon="fa-solid fa-calendar-days" />;
 
@@ -38,6 +40,7 @@ function AppointmentSharedDetail() {
   return (
     <>
       <MenuHeaderMain />
+      <SubHeader />
 
       <div className="CardLast_Single p-2">
         <div className="cardLast">
