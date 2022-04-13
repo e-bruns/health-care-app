@@ -14,6 +14,7 @@ instance.interceptors.response.use(authResponse => {
     authService.logout()
     window.location.href = "/"
   }
+// throw e
 })
 
 function authRequestIntercept(req) {

@@ -1,10 +1,13 @@
 import { Col, Row, Button, Modal } from "react-bootstrap";
 import ModalGlobal from "../_components/ModalGlobal";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setShare } from "../../features/shareSlice";
 
 const CardOtherShare = ({ share }) => {
-
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   return (
     <div className="CardShare p-2">
       <Row className="CardShare--header justify-content-between">
@@ -26,20 +29,42 @@ const CardOtherShare = ({ share }) => {
 
       <Col>
         <div className="d-grid gap-2 mt-2">
-
-          {share.medical_appointment &&
-            <Button variant="primary" size="lg" onClick={() =>
-              navigate("/share/" + share.id + "/appointments")
-            }>Consultas</Button>}
-          {share.exam &&
-            <Button variant="primary" size="lg" onClick={() =>
-              navigate("/share/" + share.id + "/exams")
-            }>Exames</Button>}
-          {share.treatment &&
-            <Button variant="primary" size="lg" onClick={() =>
-              navigate("/share/" + share.id + "/treatments")
-            }>Tratamentos</Button>}
-
+          {share.medical_appointment && (
+            <Button
+              variant="primary"
+              size="lg"
+              onClick={() => {
+                dispatch(setShare(share));
+                navigate("/share/" + share.id + "/appointments");
+              }}
+            >
+              Consultas
+            </Button>
+          )}
+          {share.exam && (
+            <Button
+              variant="primary"
+              size="lg"
+              onClick={() => {
+                dispatch(setShare(share));
+                navigate("/share/" + share.id + "/exams");
+              }}
+            >
+              Exames
+            </Button>
+          )}
+          {share.treatment && (
+            <Button
+              variant="primary"
+              size="lg"
+              onClick={() => {
+                dispatch(setShare(share));
+                navigate("/share/" + share.id + "/treatments");
+              }}
+            >
+              Tratamentos
+            </Button>
+          )}
         </div>
       </Col>
     </div>
