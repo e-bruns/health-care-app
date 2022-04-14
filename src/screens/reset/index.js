@@ -126,7 +126,7 @@ function ResetScreen() {
                     <div className="form-group mt-3 text-start">
                       <label htmlFor="token">Nova Senha</label>
                       <input
-                        type="text"
+                        type="password"
                         className="form-control"
                         placeholder="Nova Senha"
                         id="password"
