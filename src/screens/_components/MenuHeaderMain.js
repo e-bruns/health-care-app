@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./MenuHeaderMain.css";
 import { FaWindowClose } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../features/userSlice";
@@ -61,7 +61,7 @@ function MenuHeaderMain() {
           <div></div>
         </div>
         <div style={{ width: '100%', height: '50px', textAlign: 'end', marginTop: '0px', marginLeft: '-2px', display: 'flex', justifyContent: 'end', alignItems: 'center',gap: '6px' }}>
-          <p className="mt-3">Olá, <strong style={{ color: '#0a6eb7'}}>{user.name ?? 'Não informado'}</strong></p>
+          <p className="mt-3">Olá, <Link to="/profile"><strong style={{ color: '#0a6eb7'}}>{user.name ?? 'Não informado'}</strong></Link></p>
           <img src={Logo} width={40} />
         </div>
       </div>

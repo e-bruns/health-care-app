@@ -42,6 +42,18 @@ const reset = (email, token, password) => {
   }).then(response => response.data)
 }
 
+const changePassword = (changePasswordDto) => {
+  return instance.put('auth/password', changePasswordDto).then(response => response.data);
+}
+
+const changeProfile = (changeProfileDto) => {
+  return instance.put('auth', changeProfileDto).then(response => response.data);
+}
+
+const me = () => {
+  return instance.get('api/v1/me').then((response) => response.data )
+}
+
 const examNew = ({ title, date, exam_location, files }) => {
   return instance
     .post("/api/v1/exams", {
@@ -73,7 +85,10 @@ const authService = {
   register,
   examNew,
   forgot,
-  reset
+  reset,
+  changePassword,
+  changeProfile,
+  me
 };
 
 export default authService;

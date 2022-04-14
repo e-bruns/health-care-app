@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
-import "./App.css";
+import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
 } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/register/index";
 import ForgotScreen from "./screens/forgot/index";
@@ -13,7 +14,6 @@ import HomeScreen from "./screens/home/index";
 import ExamScreen from "./screens/exam/index";
 import ExamDetail from "./screens/exam/exam_detail";
 import ExamFormScreen from "./screens/exam/form";
-import { useSelector } from "react-redux";
 import ResetScreen from "./screens/reset";
 import TreatmentsScreen from "./screens/treatments";
 import TreatmentFormScreen from "./screens/treatments/form";
@@ -29,6 +29,9 @@ import SharedTreatments from "./screens/share/sharedTreatments";
 import ExamSharedDetail from "./screens/share/details/exam_detail";
 import TreatmentSharedDetail from "./screens/share/details/treatment_detail";
 import AppointmentSharedDetail from "./screens/share/details/appointment_detail";
+import ProfileScreen from "./screens/profile/form";
+
+import "./App.css";
 
 const AuthenticatedRoute = ({ children }) => {
   const { user } = useSelector((state) => state.user);
@@ -48,6 +51,14 @@ function App() {
           <Route path="/register" element={<RegisterScreen />} />
           <Route path="/forgot" element={<ForgotScreen />} />
           <Route path="/reset" element={<ResetScreen />} />
+          <Route
+            path="/profile"
+            element={
+              <AuthenticatedRoute>
+                <ProfileScreen />
+              </AuthenticatedRoute>
+            }
+          />
           <Route
             path="/home"
             element={

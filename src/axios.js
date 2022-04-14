@@ -1,33 +1,36 @@
-import axios from 'axios';
-import Cookies from 'js-cookie';
-import authService from './services/auth';
+import axios from "axios";
+import Cookies from "js-cookie";
+import authService from "./services/auth";
 
 const instance = axios.create({
-  baseURL: 'https://health-care-historic.herokuapp.com/'
+  // baseURL: 'https://health-care-historic.herokuapp.com/'
+  baseURL: "http://localhost:3000",
 });
 
 instance.interceptors.request.use(authRequestIntercept);
-instance.interceptors.response.use(authResponse => {
-  return authResponse;
-}, (error) => {
-  if([401, 403].includes(error.response.status)) {
-    authService.logout()
-    window.location.href = "/"
+instance.interceptors.response.use(
+  (authResponse) => {
+    return authResponse;
+  },
+  (error) => {
+    if ([401, 403].includes(error.response.status)) {
+      authService.logout();
+      window.location.href = "/";
+    }
+    throw error;
   }
-// throw e
-})
+);
 
 function authRequestIntercept(req) {
-  const session = Cookies.get('@session-user');
+  const session = Cookies.get("@session-user");
   if (session) {
     const sessionUser = JSON.parse(session);
-    req.headers['access-token'] = sessionUser.accessToken;
-    req.headers['client'] = sessionUser.client;
-    req.headers['uid'] = sessionUser.uid;
-    req.headers['Accept'] = '*/*';
+    req.headers["access-token"] = sessionUser.accessToken;
+    req.headers["client"] = sessionUser.client;
+    req.headers["uid"] = sessionUser.uid;
+    req.headers["Accept"] = "*/*";
   }
   return req;
 }
 
 export default instance;
-
