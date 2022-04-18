@@ -40,7 +40,7 @@ const FormChangeProfile = () => {
 
   return (
     <fieldset>
-      <legend className="text-white fw-bold text-center">Alterar Senha</legend>
+      <legend className="text-white fw-bold text-center">Alterar Meu Dados</legend>
       <Formik
         initialValues={initialValues}
         onSubmit={handleChangeProfile}
