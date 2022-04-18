@@ -58,7 +58,7 @@ const ShareList = ({ fetchService, tab, typeShare }) => {
             <div className="p-2 flex-column gap-2 d-flex">
 
               {typeShare == 1 && shares.map((share, index) => (
-                <CardMyShare key={index} share={share} />
+                <CardMyShare key={index} share={share} onCancelShared={() => fetchShares(true)} />
               ))}
 
               {typeShare == 2 && shares.map((share, index) => (
