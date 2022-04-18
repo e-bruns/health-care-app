@@ -3,7 +3,8 @@ import Cookies from "js-cookie";
 import authService from "./services/auth";
 
 const instance = axios.create({
-   baseURL: 'https://health-care-historic.herokuapp.com/'
+  // baseURL: 'https://health-care-historic.herokuapp.com/'
+  baseURL: 'https://health-historic-api.herokuapp.com/'
 });
 
 instance.interceptors.request.use(authRequestIntercept);
