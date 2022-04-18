@@ -1,7 +1,13 @@
 import { Col, Row, Button, Modal } from "react-bootstrap";
 import ModalGlobal from "../_components/ModalGlobal";
+import userShareService from "../../services/userShare";
 
 const CardMyShare = ({ share }) => {
+
+  async function deleteShare(id) {
+    await userShareService.destroy(id);
+  }
+
   return (
     <div className="CardShare p-2">
       <Row className="CardShare--header justify-content-between">
@@ -62,7 +68,7 @@ const CardMyShare = ({ share }) => {
         <ModalGlobal
           title="Deseja interromper o compartilhamento?"
           fnc={() => {
-            //function aqui
+            deleteShare(share.id);
           }}
         >
           <div className="d-grid gap-2 mt-2">
