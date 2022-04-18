@@ -1,7 +1,9 @@
 import { Col, Row, Button, Modal } from "react-bootstrap";
+import { toast } from "react-toastify";
+import userShareService from "../../services/userShare";
 import ModalGlobal from "../_components/ModalGlobal";
 
-const CardMyShare = ({ share }) => {
+const CardMyShare = ({ share, onCancelShared }) => {
   return (
     <div className="CardShare p-2">
       <Row className="CardShare--header justify-content-between">
@@ -18,6 +20,11 @@ const CardMyShare = ({ share }) => {
             <Col>Data fim do compartilhamento</Col>
             <Col className="text-end">{share.end_date}</Col>
           </Row>
+          {  share.status === 'cancelled' ? <Row className="justify-content-end">
+            <Col xs={'auto'} className='bg-danger text-white p-1'>
+              Cancelado
+            </Col>
+          </Row>: ''}
         </Col>
       </Row>
       <Row className="px-2 mt-2">
@@ -59,20 +66,31 @@ const CardMyShare = ({ share }) => {
       </Row>
 
       <Col>
-        <ModalGlobal
-          title="Deseja interromper o compartilhamento?"
-          fnc={() => {
-            //function aqui
-          }}
-        >
-          <div className="d-grid gap-2 mt-2">
+        { share.status === 'cancelled' ? 
+            ''
+            :
 
-            <Button variant="outline-danger" outline={true} size="md">
-              Interromper
-            </Button>
+            <ModalGlobal
+            title="Deseja interromper o compartilhamento?"
+            fnc={async () => {
+              //function aqui
+              await userShareService.cancelShare(share.id)
+              onCancelShared();
+              toast.success('Compartilhamento interrompido com sucesso')
+            }}
+  
+          >
+            <div className="d-grid gap-2 mt-2">
+  
+              <Button variant="outline-danger" disabled={share.status === 'cancelled'} outline={true} size="md">
+                Interromper
+              </Button>
+  
+            </div>
+          </ModalGlobal>
+        }
 
-          </div>
-        </ModalGlobal>
+      
       </Col>
     </div>
   );

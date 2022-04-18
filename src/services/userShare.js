@@ -14,10 +14,15 @@ const index = ({ page, q }) => {
     .then((response) => response.data);
 };
 
+const cancelShare = (userShareId) => {
+  return instance.delete("api/v1/user_shares/" + userShareId)
+}
+
 // isso é um teste
 const userShareService = {
   create,
-  index
+  index,
+  cancelShare
 };
 
 export default userShareService;
